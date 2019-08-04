@@ -1,0 +1,100 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaGrKsS"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>@SharedLocalizer["FormulaGrKsS"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaGrKsS">
+            @{
+                decimal[] VksSArray = ViewBag.VksS;
+                int countVksS = VksSArray.Count();
+            }
+            <input type="button" value="@SharedLocalizer["Add"]" onclick="AddVksS()" class="form-control">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["Count"]</label>
+                <input id="VksSCount" class="form-control" value="@countVksS" readonly="readonly" />
+            </div>
+            @for (int i = 0; i < countVksS; i++)
+            {
+                string divId = "VksSDiv" + i.ToString(),
+                    inputId = "VksS" + i.ToString();
+                decimal? value = VksSArray[i] == 0 ? (decimal?)null : VksSArray[i];
+                <div class="form-group" id="@divId">
+                    <label class="control-label">@SharedLocalizer["FormulaVksS"]</label>
+                    <input id="@inputId" class="form-control" name="VksS[@i.ToString()]" value="@value" />
+                    <input type="button" class="form-control" value="@SharedLocalizer["Remove"]" onclick="RemoveVksS(@i)">
+                </div>
+            }
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaMsKsS"]</label>
+                <input id="MsKsS" class="form-control" name="MsKsS" value="@ViewBag.MsKsS" />
+            </div>
+            @if (ViewBag.GrKsS != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaGrKsS"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.GrKsS" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("MsKsS"));
+    });
+</script>
+
+<script>
+    @{
+        decimal[] VksSArray2 = ViewBag.VksS;
+        int countVksS2 = VksSArray2.Count();
+    }
+    var countVksS = @countVksS2;
+
+    for (i = 0; i < countVksS; i++) {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("VksS" + i.toString()));
+    }
+
+    function AddVksS() {
+        var newVksS = '<div class="form-group" id="VksSDiv' + countVksS.toString() + '">' +
+            '<label class="control-label">@SharedLocalizer["FormulaVksS"]</label>' +
+            '<input id="VksS' + countVksS.toString() + '" class="form-control" name="VksS[' + countVksS.toString() + ']" />' +
+            '<input type="button" class="form-control" value="@SharedLocalizer["Remove"]" onclick="RemoveVksS(' + countVksS.toString() + ')">' +
+            '</div>';
+        $("#VksSDiv" + (countVksS - 1).toString()).after(newVksS);
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("VksS" + countVksS.toString()));
+        countVksS += 1;
+        $('#VksSCount').val(countVksS);
+    }
+
+    function RemoveVksS(i) {
+        $('#VksS' + i.toString()).val(0);
+        $('#VksSDiv' + i.toString()).hide();
+    }
+</script>

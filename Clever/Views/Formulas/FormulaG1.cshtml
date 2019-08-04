@@ -1,0 +1,47 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaG1"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>@SharedLocalizer["FormulaG1"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaG1">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaRor"]</label>
+                <select asp-items="ViewBag.GasDensity" name="Ror" class="form-control" id="Ror"></select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaV1Ks"]</label>
+                <input id="V1Ks" class="form-control" name="V1Ks" value="@ViewBag.V1Ks" />
+            </div>
+            @if (ViewBag.G1 != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaG1"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.G1" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("V1Ks"));
+    });
+</script>

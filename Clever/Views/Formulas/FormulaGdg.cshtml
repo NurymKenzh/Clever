@@ -1,0 +1,122 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaGdg"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>@SharedLocalizer["FormulaGdg"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaGdg">
+            @{
+                decimal[] VgdgArray = ViewBag.Vgdg;
+                int countVgdg = VgdgArray.Count();
+            }
+            <input type="button" value="@SharedLocalizer["Add"]" onclick="AddVgdg()" class="form-control">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["Count"]</label>
+                <input id="VgdgCount" class="form-control" value="@countVgdg" readonly="readonly" />
+            </div>
+            @for (int i = 0; i < countVgdg; i++)
+            {
+                string divId = "VgdgDiv" + i.ToString(),
+                    inputId = "Vgdg" + i.ToString();
+                decimal? value = VgdgArray[i] == 0 ? (decimal?)null : VgdgArray[i];
+                <div class="form-group" id="@divId">
+                    <label class="control-label">@SharedLocalizer["FormulaVgdg"]</label>
+                    <input id="@inputId" class="form-control" name="Vgdg[@i.ToString()]" value="@value" />
+                    <input type="button" class="form-control" value="@SharedLocalizer["Remove"]" onclick="RemoveVgdg(@i)">
+                </div>
+            }
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaCiDg"]</label>
+                <input id="CiDg" class="form-control" name="CiDg" value="@ViewBag.CiDg" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaKiDg"]</label>
+                <select name="KiDg" class="form-control" id="KiDg">
+                    <option value="0">Выберите один вариант</option>
+                    <option value="1">@SharedLocalizer["gasTurbine"]</option>
+                    <option value="2">@SharedLocalizer["gasEngine"]</option>
+                </select>
+            </div>
+            @if (ViewBag.GdgNOX != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaGdgNOX"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.GdgNOX" />
+                </div>
+            }
+            @if (ViewBag.GdgCO != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaGdgCO"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.GdgCO" />
+                </div>
+            }
+            @if (ViewBag.Gdg != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaGdg"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Gdg" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("CiDg"));
+    });
+</script>
+
+<script>
+    @{
+        decimal[] VgdgArray2 = ViewBag.Vgdg;
+        int countVgdg2 = VgdgArray2.Count();
+    }
+    var countVgdg = @countVgdg2;
+
+    for (i = 0; i < countVgdg; i++) {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Vgdg" + i.toString()));
+    }
+
+    function AddVgdg() {
+        var newVgdg = '<div class="form-group" id="VgdgDiv' + countVgdg.toString() + '">' +
+            '<label class="control-label">@SharedLocalizer["FormulaVgdg"]</label>' +
+            '<input id="Vgdg' + countVgdg.toString() + '" class="form-control" name="Vgdg[' + countVgdg.toString() + ']" />' +
+            '<input type="button" class="form-control" value="@SharedLocalizer["Remove"]" onclick="RemoveVgdg(' + countVgdg.toString() + ')">' +
+            '</div>';
+        $("#VgdgDiv" + (countVgdg - 1).toString()).after(newVgdg);
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Vgdg" + countVgdg.toString()));
+        countVgdg += 1;
+        $('#VgdgCount').val(countVgdg);
+    }
+
+    function RemoveVgdg(i) {
+        $('#Vgdg' + i.toString()).val(0);
+        $('#VgdgDiv' + i.toString()).hide();
+    }
+</script>

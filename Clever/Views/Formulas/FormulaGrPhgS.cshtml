@@ -1,0 +1,65 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaGrPhgS"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>@SharedLocalizer["FormulaGrPhgS"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaGrPhgS">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaКphgS"]</label>
+                <input id="КphgS" class="form-control" name="КphgS" value="@ViewBag.КphgS" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaVphgS"]</label>
+                <input id="VphgS" class="form-control" name="VphgS" value="@ViewBag.VphgS" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaMrPhgS"]</label>
+                <input id="MrPhgS" class="form-control" name="MrPhgS" value="@ViewBag.MrPhgS" />
+            </div>
+            @if (ViewBag.GrPhgS != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaGrPhgS"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.GrPhgS" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("КphgS"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("VphgS"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("MrPhgS"));
+    });
+</script>

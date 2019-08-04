@@ -1,0 +1,190 @@
+﻿@model IEnumerable<Clever.Models.AirContaminantKK>
+@using System.Net
+@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["AirContaminantsKK"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@SharedLocalizer["AirContaminantsKK"]</h2>
+
+<p>
+    @Html.ActionLink(SharedLocalizer["Create"], "Create", new { Page = ViewBag.Page, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter }) |
+    @*<a asp-action="UploadFiles">Upload Files</a>*@
+    @Html.ActionLink(SharedLocalizer["UploadFiles"], "UploadFiles", new { Page = ViewBag.Page, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter })
+</p>
+@using (Html.BeginForm("Index", "AirContaminantsKK", new { SortOrder = ViewBag.SortOrder, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter }, FormMethod.Get))
+{
+    @Html.Editor("SortOrder", null, new { htmlAttributes = new { @hidden = "hidden" }, value = ViewBag.SortOrder })
+    @if (ViewBag.EndPage > 1)
+    {
+        <ul class="pagination">
+            @if (ViewBag.Page > 1)
+            {
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&laquo;&laquo;"), "Index",
+                        new { PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter })
+                </li>
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&laquo;"), "Index",
+                    new { PageSize = ViewBag.PageSize, Page = ViewBag.Page - 1, SortOrder = ViewBag.SortOrder, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter })
+                </li>
+            }
+
+            @for (var page = (int)ViewBag.StartPage; page <= (int)ViewBag.EndPage; page++)
+            {
+                <li class="@(page == ViewBag.Page ? "active" : "")">
+                    @Html.ActionLink(page.ToString(), "Index",
+                        new { PageSize = ViewBag.PageSize, Page = page, SortOrder = ViewBag.SortOrder, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter })
+                </li>
+            }
+
+            @if (ViewBag.Page < ViewBag.TotalPages)
+            {
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&raquo;"), "Index",
+                        new { PageSize = ViewBag.PageSize, Page = ViewBag.Page + 1, SortOrder = ViewBag.SortOrder, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter })
+                </li>
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&raquo;&raquo;"), "Index",
+                        new { PageSize = ViewBag.PageSize, Page = ViewBag.TotalPages, SortOrder = ViewBag.SortOrder, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter })
+                </li>
+            }
+        </ul>
+    }
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().Name).ToString(), "Index",
+                        new { PageSize = ViewBag.PageSize, SortOrder = ViewBag.NameSort, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter })
+                    <br />
+                    @Html.Editor("NameFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                </th>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().NumberCAS).ToString(), "Index",
+                        new { PageSize = ViewBag.PageSize, SortOrder = ViewBag.NumberCASSort, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter })
+                    <br />
+                    @Html.Editor("NumberCASFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                </th>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().Formula).ToString(), "Index",
+                        new { PageSize = ViewBag.PageSize, SortOrder = ViewBag.FormulaSort, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter })
+                    <br />
+                    @Html.Editor("FormulaFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                </th>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().MaximumPermissibleConcentrationOneTimeMaximum).ToString(), "Index",
+                        new { PageSize = ViewBag.PageSize, SortOrder = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumSort, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter })
+                    <br />
+                    @Html.Editor("MaximumPermissibleConcentrationOneTimeMaximumFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                </th>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().MaximumPermissibleConcentrationDailyAverage).ToString(), "Index",
+                        new { PageSize = ViewBag.PageSize, SortOrder = ViewBag.MaximumPermissibleConcentrationDailyAverageSort, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter })
+                    <br />
+                    @Html.Editor("MaximumPermissibleConcentrationDailyAverageFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                </th>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().HazardClass).ToString(), "Index",
+                        new { PageSize = ViewBag.PageSize, SortOrder = ViewBag.HazardClassSort, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter })
+                    <br />
+                    @Html.Editor("HazardClassFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                </th>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().Code).ToString(), "Index",
+                        new { PageSize = ViewBag.PageSize, SortOrder = ViewBag.CodeSort, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter })
+                    <br />
+                    @Html.Editor("CodeFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                </th>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().ApproximateSafeExposureLevel).ToString(), "Index",
+                        new { PageSize = ViewBag.PageSize, SortOrder = ViewBag.ApproximateSafeExposureLevelSort, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter })
+                    <br />
+                    @Html.Editor("ApproximateSafeExposureLevelFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                </th>
+                <th>
+                    @Html.DropDownList("PageSize", (IEnumerable<SelectListItem>)ViewBag.PageSizeList, htmlAttributes: new { @class = "form-control" })
+                    <input type="submit" value="@SharedLocalizer["Find"]" class="btn btn-default">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumberCAS)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Formula)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaximumPermissibleConcentrationOneTimeMaximum)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaximumPermissibleConcentrationDailyAverage)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HazardClass)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ApproximateSafeExposureLevel)
+                    </td>
+                    <td>
+                        @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |*@
+                        @Html.ActionLink(SharedLocalizer["Edit"], "Edit", new { Id = item.Id, Page = ViewBag.Page, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter }) |
+                        @*<a asp-action="Details" asp-route-id="@item.Id">Details</a> |*@
+                        @Html.ActionLink(SharedLocalizer["Details"], "Details", new { Id = item.Id, Page = ViewBag.Page, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter }) |
+                        @*<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                        @Html.ActionLink(SharedLocalizer["Delete"], "Delete", new { Id = item.Id, Page = ViewBag.Page, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @if (ViewBag.EndPage > 1)
+    {
+        <ul class="pagination">
+            @if (ViewBag.Page > 1)
+            {
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&laquo;&laquo;"), "Index",
+                        new { PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter })
+                </li>
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&laquo;"), "Index",
+                        new { PageSize = ViewBag.PageSize, Page = ViewBag.Page - 1, SortOrder = ViewBag.SortOrder, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter })
+                </li>
+            }
+
+            @for (var page = (int)ViewBag.StartPage; page <= (int)ViewBag.EndPage; page++)
+            {
+                <li class="@(page == ViewBag.Page ? "active" : "")">
+                    @Html.ActionLink(page.ToString(), "Index",
+                        new { PageSize = ViewBag.PageSize, Page = page, SortOrder = ViewBag.SortOrder, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter })
+                </li>
+            }
+
+            @if (ViewBag.Page < ViewBag.TotalPages)
+            {
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&raquo;"), "Index",
+                        new { PageSize = ViewBag.PageSize, Page = ViewBag.Page + 1, SortOrder = ViewBag.SortOrder, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter })
+                </li>
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&raquo;&raquo;"), "Index",
+                        new { PageSize = ViewBag.PageSize, Page = ViewBag.TotalPages, SortOrder = ViewBag.SortOrder, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter })
+                </li>
+            }
+        </ul>
+    }
+}

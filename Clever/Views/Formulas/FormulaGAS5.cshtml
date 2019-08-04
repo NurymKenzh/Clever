@@ -1,0 +1,132 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaGasVolumeEmissionValues"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>Выбросы при продувке скважин со сжиганием на факеле</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaGAS5">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaBgs"]</label>
+                <input id="Bgs" class="form-control" name="Bgs" value="@ViewBag.Bgs" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaDgs"]</label>
+                <input id="Dgs" class="form-control" name="Dgs" value="@ViewBag.Dgs" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaE"]</label>
+                <select asp-items="ViewBag.CaloricEquivalent" name="E" class="form-control" id="E"></select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaKi"]</label>
+                <select name="Ki" class="form-control" id="Ki">
+                    @if (ViewBag.Ki == 0)
+                    {
+                        <option value="0" selected="selected">Выберите один вариант</option>
+                    }
+                    else
+                    {
+                        <option value="0">Выберите один вариант</option>
+                    }
+                    @if (ViewBag.Ki == 1)
+                    {
+                        <option value="1" selected="selected">@SharedLocalizer["withSteam"]</option>
+                    }
+                    else
+                    {
+                        <option value="1">@SharedLocalizer["withSteam"]</option>
+                    }
+                    @if (ViewBag.Ki == 2)
+                    {
+                        <option value="2" selected="selected">@SharedLocalizer["withoutSteam"]</option>
+                    }
+                    else
+                    {
+                        <option value="2">@SharedLocalizer["withoutSteam"]</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaBgf"]</label>
+                <input id="Bgf" class="form-control" name="Bgf" value="@ViewBag.Bgf" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaCh2s"]</label>
+                <input id="Ch2s" class="form-control" name="Ch2s" value="@ViewBag.Ch2s" />
+            </div>
+            @if (ViewBag.Vdg != null)
+            {
+                <h3>@SharedLocalizer["FormulaGasVolumeEmissionValues"]</h3>
+                <h4>Выбросы при продувке скважин со сжиганием на факеле</h4>
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaVdg"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Vdg" />
+                </div>
+            }
+            @if (ViewBag.VgfCO != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaVgf"] - CO</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.VgfCO" />
+                </div>
+            }
+            @if (ViewBag.VgfCH4 != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaVgf"] - CH4</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.VgfCH4" />
+                </div>
+            }
+            @if (ViewBag.VgfNO2 != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaVgf"] - NO2</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.VgfNO2" />
+                </div>
+            }
+            @if (ViewBag.Nso2 != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaNso2"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Nso2" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Bgs"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Dgs"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Bgf"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Ch2s"));
+    });
+</script>

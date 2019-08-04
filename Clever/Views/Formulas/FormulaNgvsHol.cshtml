@@ -1,0 +1,43 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaNgvsHol"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>@SharedLocalizer["FormulaNgvsHol"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaNgvsHol">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaUmHol"]</label>
+                <input id="UmHol" class="form-control" name="UmHol" value="@ViewBag.UmHol" />
+            </div>
+            @if (ViewBag.NgvsHol != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaNgvsHol"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.NgvsHol" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("UmHol"));
+    });
+</script>

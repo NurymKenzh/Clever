@@ -1,0 +1,106 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaMZMY"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>@SharedLocalizer["FormulaMZMY"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaMZMY">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaAv"]</label>
+                <input id="Av" class="form-control" name="Av" value="@ViewBag.Av" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaAc"]</label>
+                <input id="Ac" class="form-control" name="Ac" value="@ViewBag.Ac" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaBp"]</label>
+                <input id="Bp" class="form-control" name="Bp" value="@ViewBag.Bp" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaNoc"]</label>
+                <select name="Noc" class="form-control" id="Noc">
+                    @if (ViewBag.Noc == 1)
+                    {
+                        <option value="1" selected="selected">@SharedLocalizer["withSuperheater"]</option>
+                    }
+                    else
+                    {
+                        <option value="1">@SharedLocalizer["withSuperheater"]</option>
+                    }
+                    @if (ViewBag.Noc == 2)
+                    {
+                        <option value="2" selected="selected">@SharedLocalizer["withoutSuperheater"]</option>
+                    }
+                    else
+                    {
+                        <option value="2">@SharedLocalizer["withoutSuperheater"]</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaKn"]</label>
+                <select name="Kn" class="form-control" id="Kn">
+                    @if (ViewBag.Kn == 1)
+                    {
+                        <option value="1" selected="selected">@SharedLocalizer["emissionsInGS"]</option>
+                    }
+                    else
+                    {
+                        <option value="1">@SharedLocalizer["emissionsInGS"]</option>
+                    }
+                    @if (ViewBag.Kn == 2)
+                    {
+                        <option value="2" selected="selected">@SharedLocalizer["emissionsInT"]</option>
+                    }
+                    else
+                    {
+                        <option value="2">@SharedLocalizer["emissionsInT"]</option>
+                    }
+                </select>
+            </div>
+            @if (ViewBag.MZMY != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaMZMY"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.MZMY" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Av"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Ac"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Bp"));
+    });
+</script>

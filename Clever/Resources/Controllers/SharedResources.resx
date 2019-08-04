@@ -1,0 +1,984 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AirContaminantKK" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AirContaminantRU" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AirContaminantsKK" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AirContaminantsRU" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BackToList" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Calculate" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CATO" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CompaniesKK" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CompanyKK" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Directories" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Files" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Find" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaAc" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaArW" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaWr" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NameKK" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NameRU" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Parse" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value />
+  </data>
+  <data name="UploadFiles" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Url" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaHc" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaHrW" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Formulas" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaSc" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaSrW" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaNc" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaNrW" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaOc" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaOrW" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaCr" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaTitleRecalculationDryToWorking" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaV" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVcr" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVh2o" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVn2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVr" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVro2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaTitleVolumeOfDryFlueGases" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaHeatPowerThermalPowerPlantsCoal" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaAFact" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaKPDKA" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaQ" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaQ4" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaQri" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaTitleEstimatedFuelConsumption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaB" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaBp" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaCjCO" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaCjNOx" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaCjSO2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaCjTB" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaSAbove" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaAAbove" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaCCO" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaCNOx" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaCSO2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaCTB" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaO2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaTitleCalcMassConcentrationsPollutants" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaMCO" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaMNO" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaMNO2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaMNOx" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaMSO2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaMTB" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaTitleEmissionsPollutants" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaMCOY" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaMNO2Y" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaMNOxY" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaMNOY" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaMSO2Y" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaMTBY" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaN" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaTitleAnnualEmissionsPollutants" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaCjZCO" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaCjZNO" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaCjZNO2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaCjZSO2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaHeatPowerThermalPowerPlantsCoalNorm" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaHeatPowerThermalPowerPlantsCoalZ" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaICO" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaINO" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaINO2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaISO2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaAv" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaGv" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaMZMY" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaNoc" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaNyy" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaKd" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaA" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaAt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaDf" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaDn" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaNzy" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaZ" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaCjT" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaKzy" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaV1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVk" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVstr" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaD" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaL" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaP" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaPa" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaPo" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaRo" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaRor" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaSs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Formulat" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Formulat0" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaTk" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Formulatn" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaNp" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaZg" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaGasVolumeEmissionValues" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaG1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaV1Ks" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVsst" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVkKs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulatKs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaBg" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaD1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaM" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaMi" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVvg" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaBgf" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaBgs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaCh2s" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaDgs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaKi" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaNso2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaE" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVdg" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaBpg" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaDdg" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaO2dg" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaV1vp" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVb" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVe" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVpg" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaAstrat" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaDu" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaEta" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaF" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaFgvs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaFparam" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaG" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaH" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Formulai1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Formulai2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaMgvs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaNgvs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaPDK" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaPDV" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaR" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaRoGvs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaTdelta" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaTsvr" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaUm" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaV1gvs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaV1gvsov" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVgvs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaW" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaBt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaCcoDg" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaCcoSgt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaDyx" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaGw" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaGwDg" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaPsi" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaQ3" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaQnr" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaQsnr" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaRdpt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaUps" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaYco" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaDo" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaBno2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaCno2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaDfact" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaDnom" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaDyxNo2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaGno2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaNfact" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaNnom" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaPsiNo2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaQrnNo2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaUpsNo2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaYno2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaYno2Nom" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVphg" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVsr" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Count" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaGi" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaKiO" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaMiUv" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaNi" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaTi" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVi" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaGr" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaK" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaKiMif" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaRoRGr" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVrGr" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVtr" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaCoal" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaGas" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaNgvsHol" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaPDVhol" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaUmHol" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVgf" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaDd" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaPcp" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaTog" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaTogm" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaDelta" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaPz" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaTz" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaDv" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaLv" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaPv" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVgraf" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaGrGrs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaGrGrsS" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaGrKs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaGrKsS" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaGrPhg" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaGrPhgS" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaMrPhgS" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaMsKsS" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaQgrs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaQgrsS" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaRoPhgKs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVgrPhg" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVks" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVksS" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVphgS" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaКphg" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaКphgS" xml:space="preserve">
+    <value />
+  </data>
+  <data name="withoutSteam" xml:space="preserve">
+    <value />
+  </data>
+  <data name="withSteam" xml:space="preserve">
+    <value />
+  </data>
+  <data name="gasEngine" xml:space="preserve">
+    <value />
+  </data>
+  <data name="gasTurbine" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaCiDg" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaCsSa" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaGdg" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaGdgCO" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaGdgNOX" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaGsa" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaGtg" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaKiDg" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaMiTg" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaRoSa" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVgdg" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVsa" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaVtg" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaMiFactCO" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaMiFactNOx" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaMiFact" xml:space="preserve">
+    <value />
+  </data>
+  <data name="emissionsInGS" xml:space="preserve">
+    <value />
+  </data>
+  <data name="emissionsInT" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaKn" xml:space="preserve">
+    <value />
+  </data>
+  <data name="withoutSuperheater" xml:space="preserve">
+    <value />
+  </data>
+  <data name="withSuperheater" xml:space="preserve">
+    <value />
+  </data>
+  <data name="liquidSlagRemoval" xml:space="preserve">
+    <value />
+  </data>
+  <data name="solidAshRemoval" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dry" xml:space="preserve">
+    <value />
+  </data>
+  <data name="flammable" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaFuelTransfer" xml:space="preserve">
+    <value />
+  </data>
+  <data name="requiredFuelMass" xml:space="preserve">
+    <value />
+  </data>
+  <data name="selectOneOption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="targetMassOfFuel" xml:space="preserve">
+    <value />
+  </data>
+  <data name="working" xml:space="preserve">
+    <value />
+  </data>
+</root>

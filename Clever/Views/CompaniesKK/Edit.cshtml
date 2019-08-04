@@ -1,0 +1,149 @@
+﻿@model Clever.Models.CompanyKK
+@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Edit"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@SharedLocalizer["Edit"]</h2>
+
+<h4>@SharedLocalizer["CompanyKK"]</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="BIN" class="control-label"></label>
+                <input asp-for="BIN" class="form-control" />
+                <span asp-validation-for="BIN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NameKK" class="control-label"></label>
+                <input asp-for="NameKK" class="form-control" />
+                <span asp-validation-for="NameKK" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NameRU" class="control-label"></label>
+                <input asp-for="NameRU" class="form-control" />
+                <span asp-validation-for="NameRU" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateRegister" class="control-label"></label>
+                <input asp-for="DateRegister" class="form-control" />
+                @*@Html.EditorFor(m => m.DateRegister, new { @class = "form-control", @type = "date" })*@
+                @*@Html.TextBox("ExpiryDate", String.Format("{0:ddd, dd.MM.yyyy}", Model.DateRegister), new { id = "expirydate" })*@
+                <span asp-validation-for="DateRegister" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OKED" class="control-label"></label>
+                <input asp-for="OKED" class="form-control" />
+                <span asp-validation-for="OKED" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActivityKindKK" class="control-label"></label>
+                <input asp-for="ActivityKindKK" class="form-control" />
+                <span asp-validation-for="ActivityKindKK" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActivityKindRU" class="control-label"></label>
+                <input asp-for="ActivityKindRU" class="form-control" />
+                <span asp-validation-for="ActivityKindRU" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OKEDSecondary" class="control-label"></label>
+                <input asp-for="OKEDSecondary" class="form-control" />
+                <span asp-validation-for="OKEDSecondary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KRP" class="control-label"></label>
+                <input asp-for="KRP" class="form-control" />
+                <span asp-validation-for="KRP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KRPNameKK" class="control-label"></label>
+                <input asp-for="KRPNameKK" class="form-control" />
+                <span asp-validation-for="KRPNameKK" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KRPNameRU" class="control-label"></label>
+                <input asp-for="KRPNameRU" class="form-control" />
+                <span asp-validation-for="KRPNameRU" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CATO" class="control-label"></label>
+                <input asp-for="CATO" class="form-control" />
+                <span asp-validation-for="CATO" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LocalityKK" class="control-label"></label>
+                <input asp-for="LocalityKK" class="form-control" />
+                <span asp-validation-for="LocalityKK" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LocalityRU" class="control-label"></label>
+                <input asp-for="LocalityRU" class="form-control" />
+                <span asp-validation-for="LocalityRU" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LegalAddress" class="control-label"></label>
+                <input asp-for="LegalAddress" class="form-control" />
+                <span asp-validation-for="LegalAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeadName" class="control-label"></label>
+                <input asp-for="HeadName" class="form-control" />
+                <span asp-validation-for="HeadName" class="text-danger"></span>
+            </div>
+            <div hidden="hidden">
+                @Html.Editor("Search", null, new { value = ViewBag.Search })
+                @Html.Editor("SortOrder", null, new { value = ViewBag.SortOrder })
+                @Html.Editor("BIN", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("NameKK", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("NameRU", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("DateRegister", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("OKED", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("ActivityKindKK", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("ActivityKindRU", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("OKEDSecondary", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("KRP", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("KRPNameKK", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("KRPNameRU", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("CATO", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("LocalityKK", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("LocalityRU", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("LegalAddress", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("HeadName", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("PageSize", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("Page", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+            </div>
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Save"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink(SharedLocalizer["BackToList"], "Index", new { Search = ViewBag.Search, Page = ViewBag.Page, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter = ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+</div>
+
+@*@section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }*@
+
+<script>
+    $.validator.methods.range = function (value, element, param) {
+        var globalizedValue = value.replace(",", ".");
+        return this.optional(element) || (globalizedValue >= param[0] && globalizedValue <= param[1]);
+    }
+    $.validator.methods.number = function (value, element) {
+        return this.optional(element) || /-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
+    }
+    //$.validator.methods.date = function (value, element) {
+    //    return this.optional(element) || moment(value, "DD.MM.YYYY", true).isValid();
+    //}
+</script>

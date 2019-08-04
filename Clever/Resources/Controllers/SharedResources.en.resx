@@ -1,0 +1,987 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AirContaminantKK" xml:space="preserve">
+    <value>Substance that pollute the atmospheric air (Kazakhstan)</value>
+  </data>
+  <data name="AirContaminantRU" xml:space="preserve">
+    <value>Substance that pollute the atmospheric air (Russia)</value>
+  </data>
+  <data name="AirContaminantsKK" xml:space="preserve">
+    <value>Substances that pollute the atmospheric air (Kazakhstan)</value>
+  </data>
+  <data name="AirContaminantsRU" xml:space="preserve">
+    <value>Substances that pollute the atmospheric air (Russia)</value>
+  </data>
+  <data name="BackToList" xml:space="preserve">
+    <value>Back to List</value>
+  </data>
+  <data name="Calculate" xml:space="preserve">
+    <value>Calculate</value>
+  </data>
+  <data name="CATO" xml:space="preserve">
+    <value>CATO</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="CompaniesKK" xml:space="preserve">
+    <value>Legal entities</value>
+  </data>
+  <data name="CompanyKK" xml:space="preserve">
+    <value>Legal entity</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Directories" xml:space="preserve">
+    <value>Directories</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Files" xml:space="preserve">
+    <value>Files</value>
+  </data>
+  <data name="Find" xml:space="preserve">
+    <value>Find</value>
+  </data>
+  <data name="FormulaAc" xml:space="preserve">
+    <value>Ash content (dry), %</value>
+  </data>
+  <data name="FormulaArW" xml:space="preserve">
+    <value>Ash content (working), %</value>
+  </data>
+  <data name="FormulaWr" xml:space="preserve">
+    <value>Moisture contents, %</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NameKK" xml:space="preserve">
+    <value>Name (kazakh)</value>
+  </data>
+  <data name="NameRU" xml:space="preserve">
+    <value>Name (russian)</value>
+  </data>
+  <data name="Parse" xml:space="preserve">
+    <value>Parse</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="UploadFiles" xml:space="preserve">
+    <value>Import from Files</value>
+  </data>
+  <data name="Url" xml:space="preserve">
+    <value>Url</value>
+  </data>
+  <data name="FormulaHc" xml:space="preserve">
+    <value>Hydrogen content (dry), %</value>
+  </data>
+  <data name="FormulaHrW" xml:space="preserve">
+    <value>Hydrogen content (working), %</value>
+  </data>
+  <data name="Formulas" xml:space="preserve">
+    <value>Formulas</value>
+  </data>
+  <data name="FormulaSc" xml:space="preserve">
+    <value>The sulfur content (dry), %</value>
+  </data>
+  <data name="FormulaSrW" xml:space="preserve">
+    <value>The sulfur content (working), %</value>
+  </data>
+  <data name="FormulaNc" xml:space="preserve">
+    <value>Nitrogen content (dry), %</value>
+  </data>
+  <data name="FormulaNrW" xml:space="preserve">
+    <value>Nitrogen content (working), %</value>
+  </data>
+  <data name="FormulaOc" xml:space="preserve">
+    <value>Oxygen content (dry), %</value>
+  </data>
+  <data name="FormulaOrW" xml:space="preserve">
+    <value>Oxygen content (working), %</value>
+  </data>
+  <data name="FormulaCr" xml:space="preserve">
+    <value>Carbon content (working), %</value>
+  </data>
+  <data name="FormulaTitleRecalculationDryToWorking" xml:space="preserve">
+    <value>Recalculation from dry to working</value>
+  </data>
+  <data name="FormulaV" xml:space="preserve">
+    <value>Theoretical amount of dry air</value>
+  </data>
+  <data name="FormulaVcr" xml:space="preserve">
+    <value>Volume of dry flue gases</value>
+  </data>
+  <data name="FormulaVh2o" xml:space="preserve">
+    <value>Volume of water vapor</value>
+  </data>
+  <data name="FormulaVn2" xml:space="preserve">
+    <value>Volume of nitrogen</value>
+  </data>
+  <data name="FormulaVr" xml:space="preserve">
+    <value>Theoretical amount of flue gases</value>
+  </data>
+  <data name="FormulaVro2" xml:space="preserve">
+    <value>Volume of triatomic gases</value>
+  </data>
+  <data name="FormulaTitleVolumeOfDryFlueGases" xml:space="preserve">
+    <value>Calculation of the volume of dry flue gases</value>
+  </data>
+  <data name="FormulaHeatPowerThermalPowerPlantsCoal" xml:space="preserve">
+    <value>Heat power engineering. Thermal power plants and boiler houses. Coal. Measurements under actual conditions.</value>
+  </data>
+  <data name="FormulaAFact" xml:space="preserve">
+    <value>Excess air factor at the sampling site</value>
+  </data>
+  <data name="FormulaKPDKA" xml:space="preserve">
+    <value>Boiler efficiency, %</value>
+  </data>
+  <data name="FormulaQ" xml:space="preserve">
+    <value>Full load of the boiler, Gcal / h</value>
+  </data>
+  <data name="FormulaQ4" xml:space="preserve">
+    <value>Loss of heat due to mechanical underfiring of fuel</value>
+  </data>
+  <data name="FormulaQri" xml:space="preserve">
+    <value>Combustion heat of natural fuel (lowest), kcal / kg</value>
+  </data>
+  <data name="FormulaTitleEstimatedFuelConsumption" xml:space="preserve">
+    <value>Estimated fuel consumption</value>
+  </data>
+  <data name="FormulaB" xml:space="preserve">
+    <value>Total fuel consumption per boiler, t / h (thousand m³ / h) or t / year (thousand m³ / year)</value>
+  </data>
+  <data name="FormulaBp" xml:space="preserve">
+    <value>Estimated fuel consumption, t / h (thousand m³ / h) or t / year (thousand m³ / year)</value>
+  </data>
+  <data name="FormulaCjCO" xml:space="preserve">
+    <value>Mass concentration of CO</value>
+  </data>
+  <data name="FormulaCjNOx" xml:space="preserve">
+    <value>Mass concentration of NOx</value>
+  </data>
+  <data name="FormulaCjSO2" xml:space="preserve">
+    <value>Mass concentration of SO2</value>
+  </data>
+  <data name="FormulaCjTB" xml:space="preserve">
+    <value>Mass concentration TB</value>
+  </data>
+  <data name="FormulaSAbove" xml:space="preserve">
+    <value>Reduced sulfur content,% * kg / MJ</value>
+  </data>
+  <data name="FormulaAAbove" xml:space="preserve">
+    <value>Reduced ash content,% * kg / MJ</value>
+  </data>
+  <data name="FormulaCCO" xml:space="preserve">
+    <value>Mass fraction of CO</value>
+  </data>
+  <data name="FormulaCNOx" xml:space="preserve">
+    <value>Mass fraction of NOx</value>
+  </data>
+  <data name="FormulaCSO2" xml:space="preserve">
+    <value>Mass fraction of SO2</value>
+  </data>
+  <data name="FormulaCTB" xml:space="preserve">
+    <value>Mass fraction of TB</value>
+  </data>
+  <data name="FormulaO2" xml:space="preserve">
+    <value>The measured oxygen concentration at the sampling location of the flue gas sample</value>
+  </data>
+  <data name="FormulaTitleCalcMassConcentrationsPollutants" xml:space="preserve">
+    <value>Calculation of mass concentrations of pollutants</value>
+  </data>
+  <data name="FormulaMCO" xml:space="preserve">
+    <value>CO emission</value>
+  </data>
+  <data name="FormulaMNO" xml:space="preserve">
+    <value>Emission NO</value>
+  </data>
+  <data name="FormulaMNO2" xml:space="preserve">
+    <value>Emission of NO2</value>
+  </data>
+  <data name="FormulaMNOx" xml:space="preserve">
+    <value>NOx emission</value>
+  </data>
+  <data name="FormulaMSO2" xml:space="preserve">
+    <value>SO2 Emission</value>
+  </data>
+  <data name="FormulaMTB" xml:space="preserve">
+    <value>Emission of dust by inorganic</value>
+  </data>
+  <data name="FormulaTitleEmissionsPollutants" xml:space="preserve">
+    <value>Emissions of pollutants</value>
+  </data>
+  <data name="FormulaMCOY" xml:space="preserve">
+    <value>Annual CO release</value>
+  </data>
+  <data name="FormulaMNO2Y" xml:space="preserve">
+    <value>Annual NO2 emissions</value>
+  </data>
+  <data name="FormulaMNOxY" xml:space="preserve">
+    <value>Annual NOx emissions</value>
+  </data>
+  <data name="FormulaMNOY" xml:space="preserve">
+    <value>Annual NO emissions</value>
+  </data>
+  <data name="FormulaMSO2Y" xml:space="preserve">
+    <value>The annual release of SO2</value>
+  </data>
+  <data name="FormulaMTBY" xml:space="preserve">
+    <value>Annual emission of dust by inorganic</value>
+  </data>
+  <data name="FormulaN" xml:space="preserve">
+    <value>Number of hours of load use</value>
+  </data>
+  <data name="FormulaTitleAnnualEmissionsPollutants" xml:space="preserve">
+    <value>Annual emissions of pollutants</value>
+  </data>
+  <data name="FormulaCjZCO" xml:space="preserve">
+    <value>Mass concentration of CO (when using devices that measure volumetric concentration)</value>
+  </data>
+  <data name="FormulaCjZNO" xml:space="preserve">
+    <value>Mass concentration of NO (when using devices that measure volumetric concentration)</value>
+  </data>
+  <data name="FormulaCjZNO2" xml:space="preserve">
+    <value>Mass concentration of NO2 (when using devices that measure volumetric concentration)</value>
+  </data>
+  <data name="FormulaCjZSO2" xml:space="preserve">
+    <value>Mass concentration of SO2 (when using devices that measure volumetric concentration)</value>
+  </data>
+  <data name="FormulaHeatPowerThermalPowerPlantsCoalNorm" xml:space="preserve">
+    <value>Heat power engineering. Thermal power plants and boiler houses. Coal. Measurements under normal conditions.</value>
+  </data>
+  <data name="FormulaHeatPowerThermalPowerPlantsCoalZ" xml:space="preserve">
+    <value>Heat power engineering. Thermal power plants and boiler houses. Coal. Measurements under actual conditions and using instruments measuring volumetric concentration.</value>
+  </data>
+  <data name="FormulaICO" xml:space="preserve">
+    <value>Volumetric CO concentration</value>
+  </data>
+  <data name="FormulaINO" xml:space="preserve">
+    <value>Volumetric concentration of NO</value>
+  </data>
+  <data name="FormulaINO2" xml:space="preserve">
+    <value>Volumetric concentration of NO2</value>
+  </data>
+  <data name="FormulaISO2" xml:space="preserve">
+    <value>Volumetric concentration of SO2</value>
+  </data>
+  <data name="FormulaAv" xml:space="preserve">
+    <value>The actual content of a vanadium element in fuel oil,%</value>
+  </data>
+  <data name="FormulaGv" xml:space="preserve">
+    <value>Crude ash in terms of vanadium, g / t</value>
+  </data>
+  <data name="FormulaMZMY" xml:space="preserve">
+    <value>Annual release of residual oil</value>
+  </data>
+  <data name="FormulaNoc" xml:space="preserve">
+    <value>The fraction of vanadium that settles with solid particles on the heating surface of fuel oil boilers</value>
+  </data>
+  <data name="FormulaNyy" xml:space="preserve">
+    <value>Degree of cleaning of flue gases from fuel oil in ash collecting facilities,%</value>
+  </data>
+  <data name="FormulaKd" xml:space="preserve">
+    <value>The coefficient that accounts for the boiler load</value>
+  </data>
+  <data name="FormulaA" xml:space="preserve">
+    <value>The coefficient characterizing the construction of the lower part of the furnace</value>
+  </data>
+  <data name="FormulaAt" xml:space="preserve">
+    <value>The coefficient of excess air in the combustion products at the outlet from the furnace</value>
+  </data>
+  <data name="FormulaDf" xml:space="preserve">
+    <value>Actual load of the boiler, kg/s</value>
+  </data>
+  <data name="FormulaDn" xml:space="preserve">
+    <value>Rated load of the boiler, kg/s</value>
+  </data>
+  <data name="FormulaNzy" xml:space="preserve">
+    <value>Efficiency of ash collecting,%</value>
+  </data>
+  <data name="FormulaZ" xml:space="preserve">
+    <value>The coefficient, taking into account the decrease in the trapping ability of benzapyrene ZUU</value>
+  </data>
+  <data name="FormulaCjT" xml:space="preserve">
+    <value>Concentration of benzapyrene in dry flue gases, μg/m3</value>
+  </data>
+  <data name="FormulaKzy" xml:space="preserve">
+    <value>The coefficient, taking into account the degree of capture of benzapyrene by ash collectors</value>
+  </data>
+  <data name="FormulaTitleCalcGasVolumeTransportationStorageFacilities" xml:space="preserve">
+    <value>Calculation of gas volume at gas transportation and storage facilities</value>
+  </data>
+  <data name="FormulaV1" xml:space="preserve">
+    <value>The amount of bleed gas emitted into the atmosphere when blowing wells</value>
+  </data>
+  <data name="FormulaVk" xml:space="preserve">
+    <value>Geometric volume of methanol meters, plumes and connecting gas pipelines</value>
+  </data>
+  <data name="FormulaVstr" xml:space="preserve">
+    <value>The volume of ejection when gas is discharged from methanol meters, plumes and connecting gas lines to a candle</value>
+  </data>
+  <data name="FormulaD" xml:space="preserve">
+    <value>Diameter of the candle through which the well is blown, m</value>
+  </data>
+  <data name="FormulaL" xml:space="preserve">
+    <value>Length of the gas pipeline section, m</value>
+  </data>
+  <data name="FormulaNp" xml:space="preserve">
+    <value>Number of blowdowns</value>
+  </data>
+  <data name="FormulaP" xml:space="preserve">
+    <value>Gas pressure in front of the passage of the candle, MPa</value>
+  </data>
+  <data name="FormulaPa" xml:space="preserve">
+    <value>Pressure in the relevant equipment or facility, MPa</value>
+  </data>
+  <data name="FormulaPo" xml:space="preserve">
+    <value>Atmospheric gas pressure at 0 °C, MPa</value>
+  </data>
+  <data name="FormulaRo" xml:space="preserve">
+    <value>Density of gas, kg/m3</value>
+  </data>
+  <data name="FormulaRor" xml:space="preserve">
+    <value>Gas pipeline section (density value at 0 °C and 760 mm Hg)</value>
+  </data>
+  <data name="FormulaSs" xml:space="preserve">
+    <value>Sectional area, m2</value>
+  </data>
+  <data name="Formulat" xml:space="preserve">
+    <value>Well blowdown time, day (an average of 15 minutes)</value>
+  </data>
+  <data name="Formulat0" xml:space="preserve">
+    <value>Atmospheric temperature of the gas at 0 °C, °C</value>
+  </data>
+  <data name="FormulaTk" xml:space="preserve">
+    <value>Gas temperature, K</value>
+  </data>
+  <data name="Formulatn" xml:space="preserve">
+    <value>Temperature in the appropriate equipment or facility, °C</value>
+  </data>
+  <data name="FormulaZg" xml:space="preserve">
+    <value>Gas compressibility factor</value>
+  </data>
+  <data name="FormulaGasVolumeEmissionValues" xml:space="preserve">
+    <value>Gas. Calculation of gas volume emissions</value>
+  </data>
+  <data name="FormulaG1" xml:space="preserve">
+    <value>The weight amount of gas discharged into the atmosphere when the compressor is unloaded per unit time, kg/s</value>
+  </data>
+  <data name="FormulaV1Ks" xml:space="preserve">
+    <value>The volume of gas discharged into the atmosphere when the compressor is unloaded per unit time, m3/s</value>
+  </data>
+  <data name="FormulaVkKs" xml:space="preserve">
+    <value>Geometric volume of the compressor part with collectors at the reception and outlet of the compressor station, m3</value>
+  </data>
+  <data name="FormulaVsst" xml:space="preserve">
+    <value>The amount of gas discharged when stopping and unloading one compressor, m3</value>
+  </data>
+  <data name="FormulatKs" xml:space="preserve">
+    <value>Time of emptying the gas pipeline section, min</value>
+  </data>
+  <data name="FormulaBg" xml:space="preserve">
+    <value>Consumption of fuel gas, m3/h</value>
+  </data>
+  <data name="FormulaD1" xml:space="preserve">
+    <value>Air dilution factor</value>
+  </data>
+  <data name="FormulaM" xml:space="preserve">
+    <value>The amount of harmful substances in the exhaust gas of GPA, g/s</value>
+  </data>
+  <data name="FormulaMi" xml:space="preserve">
+    <value>HPA type</value>
+  </data>
+  <data name="FormulaVvg" xml:space="preserve">
+    <value>Exhaust gas volume, m3/h</value>
+  </data>
+  <data name="FormulaBgf" xml:space="preserve">
+    <value>Flue gas consumption, kg/s</value>
+  </data>
+  <data name="FormulaBgs" xml:space="preserve">
+    <value>Gas consumption for incineration, m3/s</value>
+  </data>
+  <data name="FormulaCh2s" xml:space="preserve">
+    <value>Concentration of sulfur compounds in the gas entering the combustion,% by weight</value>
+  </data>
+  <data name="FormulaDgs" xml:space="preserve">
+    <value>Coefficient of excess air</value>
+  </data>
+  <data name="FormulaKi" xml:space="preserve">
+    <value>Technological mode</value>
+  </data>
+  <data name="FormulaNso2" xml:space="preserve">
+    <value>Emission of SO2 is determined from the content of sulfur-containing (H2S, RSH,% by weight) in the combusted gas, g/s</value>
+  </data>
+  <data name="FormulaE" xml:space="preserve">
+    <value>Name of fuel</value>
+  </data>
+  <data name="FormulaVdg" xml:space="preserve">
+    <value>The volume of flue gases, the value of which is calculated from the equations of the combustion process, m3/h</value>
+  </data>
+  <data name="FormulaBpg" xml:space="preserve">
+    <value>Natural gas consumption, m3/h</value>
+  </data>
+  <data name="FormulaDdg" xml:space="preserve">
+    <value>Flue gas consumption during combustion of natural gas combustion in boiler furnaces and fire evaporators, m3/h</value>
+  </data>
+  <data name="FormulaO2dg" xml:space="preserve">
+    <value>Oxygen content in flue gases,%</value>
+  </data>
+  <data name="FormulaV1vp" xml:space="preserve">
+    <value>The total volume of full-combustion wet products with the burning of m3 of natural gas</value>
+  </data>
+  <data name="FormulaVb" xml:space="preserve">
+    <value>Theoretically, the required volume of combustion air, m3</value>
+  </data>
+  <data name="FormulaVe" xml:space="preserve">
+    <value>Theoretical volume of combustion products, m3</value>
+  </data>
+  <data name="FormulaVpg" xml:space="preserve">
+    <value>Excess air factor in flue gases</value>
+  </data>
+  <data name="FormulaAstrat" xml:space="preserve">
+    <value>Coefficient of stratification</value>
+  </data>
+  <data name="FormulaDu" xml:space="preserve">
+    <value>The diameter of the water meter, m</value>
+  </data>
+  <data name="FormulaEta" xml:space="preserve">
+    <value>The dimensional coefficient, which is the relief position</value>
+  </data>
+  <data name="FormulaF" xml:space="preserve">
+    <value>In the area of ​​a split peel, a candle, m2</value>
+  </data>
+  <data name="FormulaFgvs" xml:space="preserve">
+    <value>An indifferent coefficient, which steers the sharpness of the oscillator at the atmospheric air</value>
+  </data>
+  <data name="FormulaFparam" xml:space="preserve">
+    <value>Option, m/s2 deg</value>
+  </data>
+  <data name="FormulaG" xml:space="preserve">
+    <value>Gas flow dioxide, kg/h</value>
+  </data>
+  <data name="FormulaH" xml:space="preserve">
+    <value>Top of the top of the ground floor, m</value>
+  </data>
+  <data name="Formulai1" xml:space="preserve">
+    <value>Anthurium gas-fired mixtures at the output of кварц, kJ/kg</value>
+  </data>
+  <data name="Formulai2" xml:space="preserve">
+    <value>Enthalpy gaseous oils in working conditions, kJ/kg</value>
+  </data>
+  <data name="FormulaMgvs" xml:space="preserve">
+    <value>Slow coefficient m</value>
+  </data>
+  <data name="FormulaNgvs" xml:space="preserve">
+    <value>Slower coefficient n</value>
+  </data>
+  <data name="FormulaPDK" xml:space="preserve">
+    <value>The mean concentration of the mean product in the atmospheric concentration point, mg/m3</value>
+  </data>
+  <data name="FormulaPDV" xml:space="preserve">
+    <value>Freestandingly dazzling puffiness in the atmospheric environment, g/sec</value>
+  </data>
+  <data name="FormulaR" xml:space="preserve">
+    <value>Height of emission source, m</value>
+  </data>
+  <data name="FormulaRoGvs" xml:space="preserve">
+    <value>Gross volume of gases, kg/m3  (at P slave, T slave)</value>
+  </data>
+  <data name="FormulaTdelta" xml:space="preserve">
+    <value>Temperature of gaseous gas mixture and circulating air, deg</value>
+  </data>
+  <data name="FormulaTsvr" xml:space="preserve">
+    <value>The temperature of the gas-air mixture, K</value>
+  </data>
+  <data name="FormulaUm" xml:space="preserve">
+    <value>Maximum coefficient</value>
+  </data>
+  <data name="FormulaV1gvs" xml:space="preserve">
+    <value>Alloy gas breaks, at critical points, m3/h</value>
+  </data>
+  <data name="FormulaV1gvsov" xml:space="preserve">
+    <value>The volume of the gas-air mixture and the ambient air, deg</value>
+  </data>
+  <data name="FormulaVgvs" xml:space="preserve">
+    <value>Gas flared gas mixture, m3/h</value>
+  </data>
+  <data name="FormulaW" xml:space="preserve">
+    <value>Average speed of output of gaseous combustion sump from standstill, m/s</value>
+  </data>
+  <data name="FormulaBt" xml:space="preserve">
+    <value>Fuel consumption, t/year or m3/year</value>
+  </data>
+  <data name="FormulaCcoDg" xml:space="preserve">
+    <value>Carbon monoxide content in flue gases,%</value>
+  </data>
+  <data name="FormulaCcoSgt" xml:space="preserve">
+    <value>The yield of carbon monoxide in the combustion of gaseous fuel, kg/m3</value>
+  </data>
+  <data name="FormulaDyx" xml:space="preserve">
+    <value>Coefficient of excess air behind the boiler</value>
+  </data>
+  <data name="FormulaGw" xml:space="preserve">
+    <value>The amount of carbon monoxide emitted into the atmosphere with the flue gases of the boiler, t/year</value>
+  </data>
+  <data name="FormulaGwDg" xml:space="preserve">
+    <value>The amount of carbon oxides emitted into the atmosphere with flue gases of the boiler, t/year</value>
+  </data>
+  <data name="FormulaPsi" xml:space="preserve">
+    <value>Correction factor, depending on the type of fuel and excess air</value>
+  </data>
+  <data name="FormulaQ3" xml:space="preserve">
+    <value>Loss of heat from chemical incompleteness of fuel combustion,%</value>
+  </data>
+  <data name="FormulaQnr" xml:space="preserve">
+    <value>Heat of combustion of natural fuel, kJ/m</value>
+  </data>
+  <data name="FormulaQsnr" xml:space="preserve">
+    <value>The average annual net calorific value of fuel, MJ/kg or MJ/m3</value>
+  </data>
+  <data name="FormulaRdpt" xml:space="preserve">
+    <value>The coefficient, taking into account the share of heat loss due to chemical incompleteness of fuel combustion</value>
+  </data>
+  <data name="FormulaUps" xml:space="preserve">
+    <value>Volume of combustion products per 1 MJ of heat injected into the furnace with fuel, m3/MJ</value>
+  </data>
+  <data name="FormulaYco" xml:space="preserve">
+    <value>The parameter, depending on the type of fuel, the design of the combustion device and characterizing the amount of carbon monoxide generated per 1 GJ of heat released during fuel combustion, if there are results of direct determination of CO content in flue gases, kg/GJ</value>
+  </data>
+  <data name="FormulaDo" xml:space="preserve">
+    <value>Diameter of equipment, mm</value>
+  </data>
+  <data name="FormulaBno2" xml:space="preserve">
+    <value>Consumption of natural fuel, t/year or thousand m3/year</value>
+  </data>
+  <data name="FormulaCno2" xml:space="preserve">
+    <value>The content of nitrogen oxide in the flue gases of the boiler units,%</value>
+  </data>
+  <data name="FormulaDfact" xml:space="preserve">
+    <value>Parity with actual mode, t/h</value>
+  </data>
+  <data name="FormulaDnom" xml:space="preserve">
+    <value>Parity capacity at rated operation, t/h</value>
+  </data>
+  <data name="FormulaDyxNo2" xml:space="preserve">
+    <value>Coefficient of excess air behind the boiler</value>
+  </data>
+  <data name="FormulaGno2" xml:space="preserve">
+    <value>The amount of NOx in terms of NO2, emitted into the atmosphere with the flue gases of the boiler units, t/year</value>
+  </data>
+  <data name="FormulaNfact" xml:space="preserve">
+    <value>Heating capacity in actual operation, kW</value>
+  </data>
+  <data name="FormulaNnom" xml:space="preserve">
+    <value>Heating capacity at rated operation, kW</value>
+  </data>
+  <data name="FormulaPsiNo2" xml:space="preserve">
+    <value>Correction factor, depending on the type of fuel and excess air</value>
+  </data>
+  <data name="FormulaQrnNo2" xml:space="preserve">
+    <value>Average annual net calorific value of consumed fuel, MJ/kg</value>
+  </data>
+  <data name="FormulaUpsNo2" xml:space="preserve">
+    <value>Volume of combustion products per 1 MJ of heat injected into the furnace with fuel, m3/MJ</value>
+  </data>
+  <data name="FormulaYno2" xml:space="preserve">
+    <value>Parameter characterizing the amount of NOx of the heat generated by 1 GJ generated during fuel combustion, kg/GJ</value>
+  </data>
+  <data name="FormulaYno2Nom" xml:space="preserve">
+    <value>Specific emission at rated load of the unit, kg/GJ</value>
+  </data>
+  <data name="FormulaVphg" xml:space="preserve">
+    <value>Annual losses of gas to the atmosphere during testing of wells at UGS, released from overhaul or drilling, m3</value>
+  </data>
+  <data name="FormulaVsr" xml:space="preserve">
+    <value>Average volume of gas lost at UGS, when testing one well per year, m3</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Count" xml:space="preserve">
+    <value>Count</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="FormulaGi" xml:space="preserve">
+    <value>Gross emissions of harmful substances associated with blowdowns, venting of gas from the apparatus and with incineration, t/year</value>
+  </data>
+  <data name="FormulaKiO" xml:space="preserve">
+    <value>Number of transactions per year</value>
+  </data>
+  <data name="FormulaMiUv" xml:space="preserve">
+    <value>Specific release of i-th substance, g/m3</value>
+  </data>
+  <data name="FormulaNi" xml:space="preserve">
+    <value>The number of devices that carry out the operation with emissions in the atmosphere for the year</value>
+  </data>
+  <data name="FormulaTi" xml:space="preserve">
+    <value>The duration of the technological operation, s</value>
+  </data>
+  <data name="FormulaVi" xml:space="preserve">
+    <value>Exhaust gas volume, m3/s</value>
+  </data>
+  <data name="FormulaGr" xml:space="preserve">
+    <value>Annual release of gas into the atmosphere, t/year</value>
+  </data>
+  <data name="FormulaK" xml:space="preserve">
+    <value>The rate of gas consumption during the UGS operation, K = 0.6 - 0.7</value>
+  </data>
+  <data name="FormulaKiMif" xml:space="preserve">
+    <value>Emission factor</value>
+  </data>
+  <data name="FormulaRoRGr" xml:space="preserve">
+    <value>Density of gas, kg/m3</value>
+  </data>
+  <data name="FormulaVrGr" xml:space="preserve">
+    <value>Volume of transported gas per year, billion m3</value>
+  </data>
+  <data name="FormulaVtr" xml:space="preserve">
+    <value>Volume of fuel gases, m3/s</value>
+  </data>
+  <data name="FormulaCoal" xml:space="preserve">
+    <value>Coal</value>
+  </data>
+  <data name="FormulaGas" xml:space="preserve">
+    <value>Gas</value>
+  </data>
+  <data name="FormulaNgvsHol" xml:space="preserve">
+    <value>The dimensionless coefficient (for the case of cold ejection)</value>
+  </data>
+  <data name="FormulaPDVhol" xml:space="preserve">
+    <value>Maximum permissible emission of harmful substances for the case of cold emission, g/s</value>
+  </data>
+  <data name="FormulaUmHol" xml:space="preserve">
+    <value>Coefficient of maximum (for the case of cold emission)</value>
+  </data>
+  <data name="FormulaVgf" xml:space="preserve">
+    <value>Amount of harmful substances emitted into the atmosphere when flaring gas, kg/h</value>
+  </data>
+  <data name="FormulaDd" xml:space="preserve">
+    <value>Ratio of the inner diameter of the gas line to the inside diameter of the purge candle</value>
+  </data>
+  <data name="FormulaPcp" xml:space="preserve">
+    <value>Pressure in the gas pipeline</value>
+  </data>
+  <data name="FormulaTog" xml:space="preserve">
+    <value>Time of emptying the gas pipeline section</value>
+  </data>
+  <data name="FormulaTogm" xml:space="preserve">
+    <value>Ratio of the working section of the valve to the section of the purge candle</value>
+  </data>
+  <data name="FormulaDelta" xml:space="preserve">
+    <value>Relative weight</value>
+  </data>
+  <data name="FormulaPz" xml:space="preserve">
+    <value>Pressure, atm</value>
+  </data>
+  <data name="FormulaTz" xml:space="preserve">
+    <value>Temperature, °C</value>
+  </data>
+  <data name="FormulaDv" xml:space="preserve">
+    <value>Diameter of the gas pipeline section, mm</value>
+  </data>
+  <data name="FormulaLv" xml:space="preserve">
+    <value>Length of the gas pipeline section, m</value>
+  </data>
+  <data name="FormulaPv" xml:space="preserve">
+    <value>Pressure, MPa</value>
+  </data>
+  <data name="FormulaVgraf" xml:space="preserve">
+    <value>Volume of gas emissions into the atmosphere during purging, m3 per one purge</value>
+  </data>
+  <data name="FormulaGrGrs" xml:space="preserve">
+    <value>Annual GHG emissions, t/year</value>
+  </data>
+  <data name="FormulaGrGrsS" xml:space="preserve">
+    <value>Annual emissions of organosulphuric substances for GDS, t/year</value>
+  </data>
+  <data name="FormulaGrKs" xml:space="preserve">
+    <value>Annual gas emissions of CS, t/year</value>
+  </data>
+  <data name="FormulaGrKsS" xml:space="preserve">
+    <value>Annual emissions of organosulphuric substances for CS, t/year</value>
+  </data>
+  <data name="FormulaGrPhg" xml:space="preserve">
+    <value>Annual gas emissions of UGS, t/year</value>
+  </data>
+  <data name="FormulaGrPhgS" xml:space="preserve">
+    <value>Annual emissions of organosulphuric substances for UGS, t/year</value>
+  </data>
+  <data name="FormulaMrPhgS" xml:space="preserve">
+    <value>The amount of sulfur organic matter in m3 of gas (UGS), g/m3</value>
+  </data>
+  <data name="FormulaMsKsS" xml:space="preserve">
+    <value>The amount of sulfur organic matter in m3 of gas (KC), g/m3</value>
+  </data>
+  <data name="FormulaQgrs" xml:space="preserve">
+    <value>Productivity of GDS, million m3/day</value>
+  </data>
+  <data name="FormulaQgrsS" xml:space="preserve">
+    <value>Productivity of GDS, million m3/day</value>
+  </data>
+  <data name="FormulaRoPhgKs" xml:space="preserve">
+    <value>Density of gas, kg/m3</value>
+  </data>
+  <data name="FormulaVgrPhg" xml:space="preserve">
+    <value>Volume of transported gas per year (selection period plus pumping period), billion m3/year</value>
+  </data>
+  <data name="FormulaVks" xml:space="preserve">
+    <value>The volume of gas emission at the i-th technological operation, m3</value>
+  </data>
+  <data name="FormulaVksS" xml:space="preserve">
+    <value>The volume of gas emission at the i-th technological operation, m3</value>
+  </data>
+  <data name="FormulaVphgS" xml:space="preserve">
+    <value>Volume of transported gas per year (selection period plus pumping period), m3/year</value>
+  </data>
+  <data name="FormulaКphg" xml:space="preserve">
+    <value>Gas cost factor for technological operations</value>
+  </data>
+  <data name="FormulaКphgS" xml:space="preserve">
+    <value>Gas cost factor for technological operations</value>
+  </data>
+  <data name="withoutSteam" xml:space="preserve">
+    <value>without steam supply</value>
+  </data>
+  <data name="withSteam" xml:space="preserve">
+    <value>with steam supply</value>
+  </data>
+  <data name="gasEngine" xml:space="preserve">
+    <value>for gas turbine units</value>
+  </data>
+  <data name="gasTurbine" xml:space="preserve">
+    <value>for gas engine units</value>
+  </data>
+  <data name="FormulaCiDg" xml:space="preserve">
+    <value>Specific emissions of the i-th substance per 1 m3 of flue gases, g/m3</value>
+  </data>
+  <data name="FormulaCsSa" xml:space="preserve">
+    <value>Concentration of the sulfur compound in the fuel gas, % by weight</value>
+  </data>
+  <data name="FormulaGdg" xml:space="preserve">
+    <value>Annual emissions of combustion products of flue gases in combustion chambers of GPU, t/year</value>
+  </data>
+  <data name="FormulaGdgCO" xml:space="preserve">
+    <value>Annual emissions of combustion products of flue gases in combustion chambers of gas compressor units (for gas engine units), t/year</value>
+  </data>
+  <data name="FormulaGdgNOX" xml:space="preserve">
+    <value>Annual emissions of combustion products of flue gases in combustion chambers of gas compressor units (for gas turbine units), t/year</value>
+  </data>
+  <data name="FormulaGsa" xml:space="preserve">
+    <value>Annual emissions of sulfurous anhydride for fuel gases containing organosulfur compounds, t/year</value>
+  </data>
+  <data name="FormulaGtg" xml:space="preserve">
+    <value>Annual emissions of combustion products of fuel gas (NOx, CO, SO2) at operation of j-type GPA type, t/year</value>
+  </data>
+  <data name="FormulaKiDg" xml:space="preserve">
+    <value>Emission factor of the i-th substance</value>
+  </data>
+  <data name="FormulaMiTg" xml:space="preserve">
+    <value>Specific release of i-th substance per 1 m3 of fuel gas, g/m3</value>
+  </data>
+  <data name="FormulaRoSa" xml:space="preserve">
+    <value>Density of gas, kg/m3</value>
+  </data>
+  <data name="FormulaVgdg" xml:space="preserve">
+    <value>The volume of flue gases for j-th type GPA, m3/year</value>
+  </data>
+  <data name="FormulaVsa" xml:space="preserve">
+    <value>The volume of fuel gas containing organosulfur compounds, j-th type GPA, m3/year</value>
+  </data>
+  <data name="FormulaVtg" xml:space="preserve">
+    <value>Fuel gas volume for j-th type of gas compressor unit, m3/year</value>
+  </data>
+  <data name="FormulaMiFactCO" xml:space="preserve">
+    <value>Actual emissions of CO from GPA</value>
+  </data>
+  <data name="FormulaMiFactNOx" xml:space="preserve">
+    <value>Actual emissions of NOx from GPA</value>
+  </data>
+  <data name="FormulaMiFact" xml:space="preserve">
+    <value>Actual emissions of NOx and CO from GPA</value>
+  </data>
+  <data name="emissionsInGS" xml:space="preserve">
+    <value>Determination of emissions in g/s</value>
+  </data>
+  <data name="emissionsInT" xml:space="preserve">
+    <value>Determination of emissions in tons</value>
+  </data>
+  <data name="FormulaKn" xml:space="preserve">
+    <value>Dimension of emissions</value>
+  </data>
+  <data name="withoutSuperheater" xml:space="preserve">
+    <value>For boilers without superheaters, surface cleaning of which is carried out in a stopped state</value>
+  </data>
+  <data name="withSuperheater" xml:space="preserve">
+    <value>For boilers with industrial superheaters, surface cleaning of which is carried out in a stopped state</value>
+  </data>
+  <data name="liquidSlagRemoval" xml:space="preserve">
+    <value>liquid slag removal</value>
+  </data>
+  <data name="solidAshRemoval" xml:space="preserve">
+    <value>solid ash removal</value>
+  </data>
+  <data name="dry" xml:space="preserve">
+    <value>Dry</value>
+  </data>
+  <data name="flammable" xml:space="preserve">
+    <value>Flammable</value>
+  </data>
+  <data name="FormulaFuelTransfer" xml:space="preserve">
+    <value>Transfer of fuel</value>
+  </data>
+  <data name="requiredFuelMass" xml:space="preserve">
+    <value>Required fuel mass</value>
+  </data>
+  <data name="selectOneOption" xml:space="preserve">
+    <value>Select one option</value>
+  </data>
+  <data name="targetMassOfFuel" xml:space="preserve">
+    <value>Target mass of fuel</value>
+  </data>
+  <data name="working" xml:space="preserve">
+    <value>Working</value>
+  </data>
+</root>

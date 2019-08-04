@@ -1,0 +1,96 @@
+﻿@model Clever.Models.AirContaminantKK
+@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Edit"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@SharedLocalizer["Edit"]</h2>
+
+<h4>@SharedLocalizer["AirContaminantKK"]</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberCAS" class="control-label"></label>
+                <input asp-for="NumberCAS" class="form-control" />
+                <span asp-validation-for="NumberCAS" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Formula" class="control-label"></label>
+                <input asp-for="Formula" class="form-control" />
+                <span asp-validation-for="Formula" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaximumPermissibleConcentrationOneTimeMaximum" class="control-label"></label>
+                <input asp-for="MaximumPermissibleConcentrationOneTimeMaximum" class="form-control" />
+                <span asp-validation-for="MaximumPermissibleConcentrationOneTimeMaximum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaximumPermissibleConcentrationDailyAverage" class="control-label"></label>
+                <input asp-for="MaximumPermissibleConcentrationDailyAverage" class="form-control" />
+                <span asp-validation-for="MaximumPermissibleConcentrationDailyAverage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HazardClass" class="control-label"></label>
+                <input asp-for="HazardClass" class="form-control" />
+                <span asp-validation-for="HazardClass" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Code" class="control-label"></label>
+                <input asp-for="Code" class="form-control" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApproximateSafeExposureLevel" class="control-label"></label>
+                <input asp-for="ApproximateSafeExposureLevel" class="form-control" />
+                <span asp-validation-for="ApproximateSafeExposureLevel" class="text-danger"></span>
+            </div>
+            <div hidden="hidden">
+                @Html.Editor("SortOrder", null, new { value = ViewBag.SortOrder })
+                @Html.Editor("NameFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("NumberCASFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("FormulaFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("MaximumPermissibleConcentrationOneTimeMaximumFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("MaximumPermissibleConcentrationDailyAverageFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("HazardClassFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("CodeFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("ApproximateSafeExposureLevelFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("PageSize", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("Page", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+            </div>
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Save"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    @*<a asp-action="Index">Back to List</a>*@
+    @Html.ActionLink(SharedLocalizer["BackToList"], "Index", new { Page = ViewBag.Page, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter })
+</div>
+
+@*@section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }*@
+
+<script>
+    $.validator.methods.range = function (value, element, param) {
+        var globalizedValue = value.replace(",", ".");
+        return this.optional(element) || (globalizedValue >= param[0] && globalizedValue <= param[1]);
+    }
+    $.validator.methods.number = function (value, element) {
+        return this.optional(element) || /-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
+    }
+</script>

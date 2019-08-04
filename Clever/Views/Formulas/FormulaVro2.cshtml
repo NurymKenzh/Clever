@@ -1,0 +1,51 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaVro2"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>@SharedLocalizer["FormulaVro2"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaVro2">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaCr"]</label>
+                <input id="Cr" class="form-control" name="Cr" value="@ViewBag.Cr" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaSrW"]</label>
+                <input id="SrW" class="form-control" name="SrW" value="@ViewBag.SrW" />
+            </div>
+            @if (ViewBag.Vro2 != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaVro2"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Vro2" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Cr"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("SrW"));
+    });
+</script>

@@ -1,0 +1,989 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AirContaminantKK" xml:space="preserve">
+    <value>Вещество, загрязняющее атмосферный воздух (Казахстан)</value>
+  </data>
+  <data name="AirContaminantRU" xml:space="preserve">
+    <value>Вещество, загрязняющее атмосферный воздух (Россия)</value>
+  </data>
+  <data name="AirContaminantsKK" xml:space="preserve">
+    <value>Вещества, загрязняющие атмосферный воздух (Казахстан)</value>
+  </data>
+  <data name="AirContaminantsRU" xml:space="preserve">
+    <value>Вещества, загрязняющие атмосферный воздух (Россия)</value>
+  </data>
+  <data name="BackToList" xml:space="preserve">
+    <value>Обратно к списку</value>
+  </data>
+  <data name="Calculate" xml:space="preserve">
+    <value>Вычислить</value>
+  </data>
+  <data name="CATO" xml:space="preserve">
+    <value>КАТО</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Код</value>
+  </data>
+  <data name="CompaniesKK" xml:space="preserve">
+    <value>Юридические лица</value>
+  </data>
+  <data name="CompanyKK" xml:space="preserve">
+    <value>Юридическое лицо</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Создать</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Детали</value>
+  </data>
+  <data name="Directories" xml:space="preserve">
+    <value>Справочники</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
+  <data name="Files" xml:space="preserve">
+    <value>Файлы</value>
+  </data>
+  <data name="Find" xml:space="preserve">
+    <value>Найти</value>
+  </data>
+  <data name="FormulaAc" xml:space="preserve">
+    <value>Зольность (сухая), %</value>
+  </data>
+  <data name="FormulaArW" xml:space="preserve">
+    <value>Зольность (рабочая), %</value>
+  </data>
+  <data name="FormulaWr" xml:space="preserve">
+    <value>Содержание влаги, %</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Главная</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Меню</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="NameKK" xml:space="preserve">
+    <value>Название (казахский)</value>
+  </data>
+  <data name="NameRU" xml:space="preserve">
+    <value>Название (русский)</value>
+  </data>
+  <data name="Parse" xml:space="preserve">
+    <value>Парсить</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Поиск</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Загрузить</value>
+  </data>
+  <data name="UploadFiles" xml:space="preserve">
+    <value>Загрузить из файлов</value>
+  </data>
+  <data name="Url" xml:space="preserve">
+    <value>Веб-сайт</value>
+  </data>
+  <data name="FormulaHc" xml:space="preserve">
+    <value>Содержание водорода (сухое), %</value>
+  </data>
+  <data name="FormulaHrW" xml:space="preserve">
+    <value>Содержание водорода (рабочее), %</value>
+  </data>
+  <data name="Formulas" xml:space="preserve">
+    <value>Формулы</value>
+  </data>
+  <data name="FormulaSc" xml:space="preserve">
+    <value>Содержание серы (сухое), %</value>
+  </data>
+  <data name="FormulaSrW" xml:space="preserve">
+    <value>Содержание серы (рабочее), %</value>
+  </data>
+  <data name="FormulaNc" xml:space="preserve">
+    <value>Содержание азота  (сухое), %</value>
+  </data>
+  <data name="FormulaNrW" xml:space="preserve">
+    <value>Содержание азота  (рабочее), %</value>
+  </data>
+  <data name="FormulaOc" xml:space="preserve">
+    <value>Содержание кислорода (сухое), %</value>
+  </data>
+  <data name="FormulaOrW" xml:space="preserve">
+    <value>Содержание кислорода (рабочее), %</value>
+  </data>
+  <data name="FormulaCr" xml:space="preserve">
+    <value>Содержание углерода  (рабочее), %</value>
+  </data>
+  <data name="FormulaTitleRecalculationDryToWorking" xml:space="preserve">
+    <value>Пересчет из сухого состояния в рабочее</value>
+  </data>
+  <data name="FormulaV" xml:space="preserve">
+    <value>Теоретическое количество сухого воздуха</value>
+  </data>
+  <data name="FormulaVcr" xml:space="preserve">
+    <value>Объем сухих дымовых газов</value>
+  </data>
+  <data name="FormulaVh2o" xml:space="preserve">
+    <value>Объем водяных паров</value>
+  </data>
+  <data name="FormulaVn2" xml:space="preserve">
+    <value>Объем азота</value>
+  </data>
+  <data name="FormulaVr" xml:space="preserve">
+    <value>Теоретическое количество дымовых газов</value>
+  </data>
+  <data name="FormulaVro2" xml:space="preserve">
+    <value>Объем трехатомных газов</value>
+  </data>
+  <data name="FormulaTitleVolumeOfDryFlueGases" xml:space="preserve">
+    <value>Расчет объема сухих дымовых газов</value>
+  </data>
+  <data name="FormulaHeatPowerThermalPowerPlantsCoal" xml:space="preserve">
+    <value>Теплоэнергетика. ТЭС и котельные. Уголь. Замеры при фактических условиях.</value>
+  </data>
+  <data name="FormulaAFact" xml:space="preserve">
+    <value>Коэффициент избытка воздуха в месте отбора пробы</value>
+  </data>
+  <data name="FormulaKPDKA" xml:space="preserve">
+    <value>КПД котлоагрегата, %</value>
+  </data>
+  <data name="FormulaQ" xml:space="preserve">
+    <value>Полная нагрузка котла, Гкал/час</value>
+  </data>
+  <data name="FormulaQ4" xml:space="preserve">
+    <value>Потери тепла вследствие механического недожога топлива</value>
+  </data>
+  <data name="FormulaQri" xml:space="preserve">
+    <value>Теплота сгорания натурального топлива (низшая), ккал/кг</value>
+  </data>
+  <data name="FormulaTitleEstimatedFuelConsumption" xml:space="preserve">
+    <value>Расчетный расход топлива</value>
+  </data>
+  <data name="FormulaB" xml:space="preserve">
+    <value>Полный расход топлива на котел, т/ч (тыс. м³/ч) или т/год (тыс. м³/год)</value>
+  </data>
+  <data name="FormulaBp" xml:space="preserve">
+    <value>Расчетный расход топлива, т/ч (тыс.м³/ч) или т/год (тыс. м³/год)</value>
+  </data>
+  <data name="FormulaCjCO" xml:space="preserve">
+    <value>Массовая концентрация CO</value>
+  </data>
+  <data name="FormulaCjNOx" xml:space="preserve">
+    <value>Массовая концентрация NOx</value>
+  </data>
+  <data name="FormulaCjSO2" xml:space="preserve">
+    <value>Массовая концентрация SO2</value>
+  </data>
+  <data name="FormulaCjTB" xml:space="preserve">
+    <value>Массовая концентрация TB</value>
+  </data>
+  <data name="FormulaSAbove" xml:space="preserve">
+    <value>Приведенное содержание серы, %*кг/МДж</value>
+  </data>
+  <data name="FormulaAAbove" xml:space="preserve">
+    <value>Приведенное содержание золы, %*кг/МДж</value>
+  </data>
+  <data name="FormulaCCO" xml:space="preserve">
+    <value>Массовая доля CO</value>
+  </data>
+  <data name="FormulaCNOx" xml:space="preserve">
+    <value>Массовая доля NOx</value>
+  </data>
+  <data name="FormulaCSO2" xml:space="preserve">
+    <value>Массовая доля SO2</value>
+  </data>
+  <data name="FormulaCTB" xml:space="preserve">
+    <value>Массовая доля TB</value>
+  </data>
+  <data name="FormulaO2" xml:space="preserve">
+    <value>Измеренная концентрация кислорода в месте отбора пробы дымовых газов</value>
+  </data>
+  <data name="FormulaTitleCalcMassConcentrationsPollutants" xml:space="preserve">
+    <value>Расчет массовых концентраций загрязняющих веществ</value>
+  </data>
+  <data name="FormulaMCO" xml:space="preserve">
+    <value>Выброс CO</value>
+  </data>
+  <data name="FormulaMNO" xml:space="preserve">
+    <value>Выброс NO</value>
+  </data>
+  <data name="FormulaMNO2" xml:space="preserve">
+    <value>Выброс NO2</value>
+  </data>
+  <data name="FormulaMNOx" xml:space="preserve">
+    <value>Выброс NOx</value>
+  </data>
+  <data name="FormulaMSO2" xml:space="preserve">
+    <value>Выброс SO2</value>
+  </data>
+  <data name="FormulaMTB" xml:space="preserve">
+    <value>Выброс пыли неорганической</value>
+  </data>
+  <data name="FormulaTitleEmissionsPollutants" xml:space="preserve">
+    <value>Выбросы загрязняющих веществ</value>
+  </data>
+  <data name="FormulaMCOY" xml:space="preserve">
+    <value>Годовой выброс CO</value>
+  </data>
+  <data name="FormulaMNO2Y" xml:space="preserve">
+    <value>Годовой выброс NO2</value>
+  </data>
+  <data name="FormulaMNOxY" xml:space="preserve">
+    <value>Годовой выброс NOx</value>
+  </data>
+  <data name="FormulaMNOY" xml:space="preserve">
+    <value>Годовой выброс NO</value>
+  </data>
+  <data name="FormulaMSO2Y" xml:space="preserve">
+    <value>Годовой выброс SO2</value>
+  </data>
+  <data name="FormulaMTBY" xml:space="preserve">
+    <value>Годовой выброс пыли неорганической</value>
+  </data>
+  <data name="FormulaN" xml:space="preserve">
+    <value>Число часов использования нагрузки</value>
+  </data>
+  <data name="FormulaTitleAnnualEmissionsPollutants" xml:space="preserve">
+    <value>Годовые выбросы загрязняющих веществ</value>
+  </data>
+  <data name="FormulaCjZCO" xml:space="preserve">
+    <value>Массовая концентрация CO (при использовании приборов, измеряющих объемную концентрацию)</value>
+  </data>
+  <data name="FormulaCjZNO" xml:space="preserve">
+    <value>Массовая концентрация NO (при использовании приборов, измеряющих объемную концентрацию)</value>
+  </data>
+  <data name="FormulaCjZNO2" xml:space="preserve">
+    <value>Массовая концентрация NO2 (при использовании приборов, измеряющих объемную концентрацию)</value>
+  </data>
+  <data name="FormulaCjZSO2" xml:space="preserve">
+    <value>Массовая концентрация SO2 (при использовании приборов, измеряющих объемную концентрацию)</value>
+  </data>
+  <data name="FormulaHeatPowerThermalPowerPlantsCoalNorm" xml:space="preserve">
+    <value>Теплоэнергетика. ТЭС и котельные. Уголь. Замеры при нормальных условиях.</value>
+  </data>
+  <data name="FormulaHeatPowerThermalPowerPlantsCoalZ" xml:space="preserve">
+    <value>Теплоэнергетика. ТЭС и котельные. Уголь. Замеры при фактических условиях и при использовании приборов, измеряющих объемную концентрацию.</value>
+  </data>
+  <data name="FormulaICO" xml:space="preserve">
+    <value>Объемная концентрация CO</value>
+  </data>
+  <data name="FormulaINO" xml:space="preserve">
+    <value>Объемная концентрация NO</value>
+  </data>
+  <data name="FormulaINO2" xml:space="preserve">
+    <value>Объемная концентрация NO2</value>
+  </data>
+  <data name="FormulaISO2" xml:space="preserve">
+    <value>Объемная концентрация SO2</value>
+  </data>
+  <data name="FormulaAv" xml:space="preserve">
+    <value>Фактическое содержание элемента ванадия в мазуте, %</value>
+  </data>
+  <data name="FormulaGv" xml:space="preserve">
+    <value>Мазутная зола в пересчете на ванадий, г/тонн</value>
+  </data>
+  <data name="FormulaMZMY" xml:space="preserve">
+    <value>Годовой выброс мазутной золы</value>
+  </data>
+  <data name="FormulaNoc" xml:space="preserve">
+    <value>Доля ванадия, оседающего с твердыми частицами на поверхности нагрева мазутных котлов</value>
+  </data>
+  <data name="FormulaNyy" xml:space="preserve">
+    <value>Степень очистки дымовых газов от мазутной золы в золоулавливающих установках, %</value>
+  </data>
+  <data name="FormulaKd" xml:space="preserve">
+    <value>Коэффициент, учитывающий нагрузку котла</value>
+  </data>
+  <data name="FormulaA" xml:space="preserve">
+    <value>Коэффициент, характеризующий конструкцию нижней части топки</value>
+  </data>
+  <data name="FormulaAt" xml:space="preserve">
+    <value>Коэффициент избытка воздуха в продуктах сгорания на выходе из топки</value>
+  </data>
+  <data name="FormulaDf" xml:space="preserve">
+    <value>Фактическая нагрузка котла, кг/с</value>
+  </data>
+  <data name="FormulaDn" xml:space="preserve">
+    <value>Номинальная нагрузка котла, кг/с</value>
+  </data>
+  <data name="FormulaNzy" xml:space="preserve">
+    <value>КПД золоулавливания, %</value>
+  </data>
+  <data name="FormulaZ" xml:space="preserve">
+    <value>Коэффициент, учитывающий снижение улавливающей способности бензапирена ЗУУ</value>
+  </data>
+  <data name="FormulaCjT" xml:space="preserve">
+    <value>Концентрация бензапирена в сухих дымовых газах, мкг/м3</value>
+  </data>
+  <data name="FormulaKzy" xml:space="preserve">
+    <value>Коэффициент, учитывающий степень улавливания бензапирена золоуловителями</value>
+  </data>
+  <data name="FormulaTitleCalcGasVolumeTransportationStorageFacilities" xml:space="preserve">
+    <value>Расчет объема газа на объектах транспорта и хранения газа</value>
+  </data>
+  <data name="FormulaV1" xml:space="preserve">
+    <value>Объем стравливаемого  газа, выбрасываемого в атмосферу при продувке скважин</value>
+  </data>
+  <data name="FormulaVk" xml:space="preserve">
+    <value>Геометрический объем метанольниц, шлейфов и соединительных газопроводов</value>
+  </data>
+  <data name="FormulaVstr" xml:space="preserve">
+    <value>Объем выброса при стравливании газа из метанольниц, шлейфов и соединительных газопроводов на свечу</value>
+  </data>
+  <data name="FormulaD" xml:space="preserve">
+    <value>Диаметр свечи через которую проходит продувка скважин, м</value>
+  </data>
+  <data name="FormulaL" xml:space="preserve">
+    <value>Длина участка газопровода, м</value>
+  </data>
+  <data name="FormulaNp" xml:space="preserve">
+    <value>Количество продувок</value>
+  </data>
+  <data name="FormulaP" xml:space="preserve">
+    <value>Давление газа перед пропускным отверстием свечи, МПа</value>
+  </data>
+  <data name="FormulaPa" xml:space="preserve">
+    <value>Давление в соответствующем оборудовании или сооружении, МПа</value>
+  </data>
+  <data name="FormulaPo" xml:space="preserve">
+    <value>Атмосферное давление газа при 0 °C, МПа</value>
+  </data>
+  <data name="FormulaRo" xml:space="preserve">
+    <value>Плотность газа, кг/м3</value>
+  </data>
+  <data name="FormulaRor" xml:space="preserve">
+    <value>Участок газопровода (значение плотности при 0 °C и 760 мм. рт. ст.)</value>
+  </data>
+  <data name="FormulaSs" xml:space="preserve">
+    <value>Площадь сечения, м2</value>
+  </data>
+  <data name="Formulat" xml:space="preserve">
+    <value>Время продувки скважины, сутки (в среднем 15 минут)</value>
+  </data>
+  <data name="Formulat0" xml:space="preserve">
+    <value>Атмосферная температура газа при 0 °C, °C</value>
+  </data>
+  <data name="FormulaTk" xml:space="preserve">
+    <value>Tемпература газа, К</value>
+  </data>
+  <data name="Formulatn" xml:space="preserve">
+    <value>Температура в соответствующем оборудовании или сооружении, °C</value>
+  </data>
+  <data name="FormulaZg" xml:space="preserve">
+    <value>Коэффициент сжимаемости газа</value>
+  </data>
+  <data name="FormulaGasVolumeEmissionValues" xml:space="preserve">
+    <value>Газ. Расчёт выбросов объёма газа</value>
+  </data>
+  <data name="FormulaG1" xml:space="preserve">
+    <value>Весовое количество газа, стравливаемое в атмосферу при разгрузке компрессора в единицу времени,
+кг/с</value>
+  </data>
+  <data name="FormulaV1Ks" xml:space="preserve">
+    <value>Объем газа, стравливаемый в атмосферу при разгрузке компрессора в единицу времени, м3/с</value>
+  </data>
+  <data name="FormulaVkKs" xml:space="preserve">
+    <value>Геометрический объем компрессорной части с коллекторами на приеме и выходе КС, м3</value>
+  </data>
+  <data name="FormulaVsst" xml:space="preserve">
+    <value>Количество газа, стравливаемое при остановке и разгрузке
+одного компрессора, м3</value>
+  </data>
+  <data name="FormulatKs" xml:space="preserve">
+    <value>Время опорожнения участка газопровода, мин</value>
+  </data>
+  <data name="FormulaBg" xml:space="preserve">
+    <value>Расход топливного газа, м3/ч</value>
+  </data>
+  <data name="FormulaD1" xml:space="preserve">
+    <value>Коэффициент разбавления воздуха</value>
+  </data>
+  <data name="FormulaM" xml:space="preserve">
+    <value>Количество вредных веществ в выхлопных газах ГПА, г/сек</value>
+  </data>
+  <data name="FormulaMi" xml:space="preserve">
+    <value>Тип ГПА</value>
+  </data>
+  <data name="FormulaVvg" xml:space="preserve">
+    <value>Объём выхлопных газов, м3/ч</value>
+  </data>
+  <data name="FormulaBgf" xml:space="preserve">
+    <value>Расход газа на факеле, кг/сек</value>
+  </data>
+  <data name="FormulaBgs" xml:space="preserve">
+    <value>Расход газа на сжигание, м3/с</value>
+  </data>
+  <data name="FormulaCh2s" xml:space="preserve">
+    <value>Концентрация соединений серы в газе, поступающем на сжигание, % вес</value>
+  </data>
+  <data name="FormulaDgs" xml:space="preserve">
+    <value>Коэффициент избытка воздуха</value>
+  </data>
+  <data name="FormulaKi" xml:space="preserve">
+    <value>Технологический режим</value>
+  </data>
+  <data name="FormulaNso2" xml:space="preserve">
+    <value>Выброс SO2 определяют по содержанию серосодержащих (H2S, RSH, % вес ) в сжигаемом газе, г/сек</value>
+  </data>
+  <data name="FormulaE" xml:space="preserve">
+    <value>Наименование топлива</value>
+  </data>
+  <data name="FormulaVdg" xml:space="preserve">
+    <value>Объём дымовых газов, величину которого рассчитывают по уравнениям процесса сгорания, м3/ч</value>
+  </data>
+  <data name="FormulaBpg" xml:space="preserve">
+    <value>Расход природного газа, м3/ч</value>
+  </data>
+  <data name="FormulaDdg" xml:space="preserve">
+    <value>Коэффициент избытка воздуха в дымовых газах</value>
+  </data>
+  <data name="FormulaO2dg" xml:space="preserve">
+    <value>Содержание кислорода в дымовых газах, %</value>
+  </data>
+  <data name="FormulaV1vp" xml:space="preserve">
+    <value>Суммарный объём влажных продуктов полного сгорания при сжигании м3 природного газа</value>
+  </data>
+  <data name="FormulaVb" xml:space="preserve">
+    <value>Теоретически необходимый объём воздуха на горение, м3</value>
+  </data>
+  <data name="FormulaVe" xml:space="preserve">
+    <value>Теоретический объём продуктов сгорания, м3</value>
+  </data>
+  <data name="FormulaVpg" xml:space="preserve">
+    <value>Расход дымовых газов при сжигании природного сгорания газа в топках котлов и огневых испарителей, м3/ч</value>
+  </data>
+  <data name="FormulaAstrat" xml:space="preserve">
+    <value>Коэффициент стратификации</value>
+  </data>
+  <data name="FormulaDu" xml:space="preserve">
+    <value>Диаметр устья источника выброса, м</value>
+  </data>
+  <data name="FormulaEta" xml:space="preserve">
+    <value>Безразмерный коэффициент, учитывающий рельеф местности</value>
+  </data>
+  <data name="FormulaF" xml:space="preserve">
+    <value>Площадь поперечного сечения устья свечи, м2</value>
+  </data>
+  <data name="FormulaFgvs" xml:space="preserve">
+    <value>Безразмерный коэффициент, учитывающий скорость оседания ВВ в атмосферном воздухе</value>
+  </data>
+  <data name="FormulaFparam" xml:space="preserve">
+    <value>Параметр, м/с2 град</value>
+  </data>
+  <data name="FormulaG" xml:space="preserve">
+    <value>Весовой расход газовоздушной смеси, кг/с</value>
+  </data>
+  <data name="FormulaH" xml:space="preserve">
+    <value>Высота источника выброса над уровнем земли, м</value>
+  </data>
+  <data name="Formulai1" xml:space="preserve">
+    <value>Энтальпия газовоздушной смеси при выходе из свечи, кДж/кг</value>
+  </data>
+  <data name="Formulai2" xml:space="preserve">
+    <value>Энтальпия газовоздушной смеси в рабочих условиях, кДж/кг</value>
+  </data>
+  <data name="FormulaMgvs" xml:space="preserve">
+    <value>Безразмерный коэффициент m</value>
+  </data>
+  <data name="FormulaNgvs" xml:space="preserve">
+    <value>Безразмерный коэффициент n</value>
+  </data>
+  <data name="FormulaPDK" xml:space="preserve">
+    <value>Предельно допустимая концентрация вредного вещества в приземном слое атмосферы населённых пунктов, мг/м3</value>
+  </data>
+  <data name="FormulaPDV" xml:space="preserve">
+    <value>Предельно допустимый нагретый выброс вредного вещества в атмосферу, г/с</value>
+  </data>
+  <data name="FormulaR" xml:space="preserve">
+    <value>Высота источника выброса, м</value>
+  </data>
+  <data name="FormulaRoGvs" xml:space="preserve">
+    <value>Плотность газа, кг/м3  (при Р раб, Т раб)</value>
+  </data>
+  <data name="FormulaTdelta" xml:space="preserve">
+    <value>Разность температур газовоздушной смеси и окружающего воздуха, град</value>
+  </data>
+  <data name="FormulaTsvr" xml:space="preserve">
+    <value>Температура газовоздушной смеси, К</value>
+  </data>
+  <data name="FormulaUm" xml:space="preserve">
+    <value>Коэффициент максимальный</value>
+  </data>
+  <data name="FormulaV1gvs" xml:space="preserve">
+    <value>Объем газовоздушной смеси при критических скоростях выброса, м3/с</value>
+  </data>
+  <data name="FormulaV1gvsov" xml:space="preserve">
+    <value>Объём газовоздушной смеси и окружающего воздуха, град</value>
+  </data>
+  <data name="FormulaVgvs" xml:space="preserve">
+    <value>Объем газовоздушной смеси, м3/с</value>
+  </data>
+  <data name="FormulaW" xml:space="preserve">
+    <value>Средняя скорость выхода газовоздушной смеси из устья источника выброса, м/с</value>
+  </data>
+  <data name="FormulaBt" xml:space="preserve">
+    <value>Расход топлива, т/год или м3/год</value>
+  </data>
+  <data name="FormulaCcoDg" xml:space="preserve">
+    <value>Содержание оксида углерода в дымовых газах, % об</value>
+  </data>
+  <data name="FormulaCcoSgt" xml:space="preserve">
+    <value>Выход окиси углерода при сжигании газообразного топлива, кг/тыс. м3</value>
+  </data>
+  <data name="FormulaDyx" xml:space="preserve">
+    <value>Коэффициент избытка воздуха за котлоагрегатом</value>
+  </data>
+  <data name="FormulaGw" xml:space="preserve">
+    <value>Количество окиси углерода , выбрасываемое в атмосферу с дымовыми газами котлоагрегата, т/год</value>
+  </data>
+  <data name="FormulaGwDg" xml:space="preserve">
+    <value>Количество оксидов углерода, выбрасываемое в атмосферу с дымовыми газами котла, т/год</value>
+  </data>
+  <data name="FormulaPsi" xml:space="preserve">
+    <value>Поправочный коэффициент, зависящий от вида топлива и избытка воздуха</value>
+  </data>
+  <data name="FormulaQ3" xml:space="preserve">
+    <value>Потери тепла от химической неполноты сгорания топлива, %</value>
+  </data>
+  <data name="FormulaQnr" xml:space="preserve">
+    <value>Теплота сгорания натурального топлива, кДж/м</value>
+  </data>
+  <data name="FormulaQsnr" xml:space="preserve">
+    <value>Среднегодовая низшая теплота сгорания топлива, МДж/кг или МДж/м3</value>
+  </data>
+  <data name="FormulaRdpt" xml:space="preserve">
+    <value>Коэффициент, учитывающий долю потери теплоты вследствие химической неполноты сгорания топлива</value>
+  </data>
+  <data name="FormulaUps" xml:space="preserve">
+    <value>Объём продуктов сгорания на 1 МДж тепла, введённого в топку с топливом, м3/МДж</value>
+  </data>
+  <data name="FormulaYco" xml:space="preserve">
+    <value>Параметр, зависимый от вида топлива, конструкции топочного устройства и характеризующий количество окиси углерода, образующегося на 1 ГДж тепла, выделяемого при горении топлива, если имеются результаты непосредственного определения содержания CО в дымовых газах, кг/ГДж</value>
+  </data>
+  <data name="FormulaDo" xml:space="preserve">
+    <value>Диаметр оборудования, мм</value>
+  </data>
+  <data name="FormulaBno2" xml:space="preserve">
+    <value>Расход натурального топлива, т/год или тыс. м3/год</value>
+  </data>
+  <data name="FormulaCno2" xml:space="preserve">
+    <value>Содержание окисла азота в дымовых газах котлоагрегатов, % об</value>
+  </data>
+  <data name="FormulaDfact" xml:space="preserve">
+    <value>Парапроизводительность при фактическом режиме, т/ч</value>
+  </data>
+  <data name="FormulaDnom" xml:space="preserve">
+    <value>Парапроизводительность при номинальном режиме, т/ч</value>
+  </data>
+  <data name="FormulaDyxNo2" xml:space="preserve">
+    <value>Коэффициент избытка воздуха за котлоагрегатом</value>
+  </data>
+  <data name="FormulaGno2" xml:space="preserve">
+    <value>Количество NOx в пересчёте на NO2, выбрасываемых в атмосферу с дымовыми газами котлоагрегатов, т/год</value>
+  </data>
+  <data name="FormulaNfact" xml:space="preserve">
+    <value>Теплопроизводительность при фактическом режиме, кВт</value>
+  </data>
+  <data name="FormulaNnom" xml:space="preserve">
+    <value>Теплопроизводительность при номинальном режиме, кВт</value>
+  </data>
+  <data name="FormulaPsiNo2" xml:space="preserve">
+    <value>Поправочный коэффициент, зависящий от вида топлива и избытка воздуха</value>
+  </data>
+  <data name="FormulaQrnNo2" xml:space="preserve">
+    <value>Среднегодовая низшая теплота сгорания израсходованного топлива, МДж/кг</value>
+  </data>
+  <data name="FormulaUpsNo2" xml:space="preserve">
+    <value>Объём продуктов сгорания на 1 МДж тепла, введённого в топку с топливом, м3/МДж</value>
+  </data>
+  <data name="FormulaYno2" xml:space="preserve">
+    <value>Параметр, характеризующий количество NOx образующих на 1 ГДж тепла, выделяемого при горении топлива, кг/ГДж</value>
+  </data>
+  <data name="FormulaYno2Nom" xml:space="preserve">
+    <value>Удельный выброс при номинальной нагрузке агрегата, кг/ГДж</value>
+  </data>
+  <data name="FormulaVphg" xml:space="preserve">
+    <value>Годовые потери газа в атмосферу при испытании скважин на ПХГ, вышедших из капитального ремонта или бурения, м3</value>
+  </data>
+  <data name="FormulaVsr" xml:space="preserve">
+    <value>Средний объём газа теряемый на ПХГ, при испытании одной скважины в год, м3</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Добавить</value>
+  </data>
+  <data name="Count" xml:space="preserve">
+    <value>Количество</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="FormulaGi" xml:space="preserve">
+    <value>Валовые выбросы вредных веществ, связанные с продувками, стравливанием газа из аппаратов и со сжиганием, т/год</value>
+  </data>
+  <data name="FormulaKiO" xml:space="preserve">
+    <value>Количество операций за год</value>
+  </data>
+  <data name="FormulaMiUv" xml:space="preserve">
+    <value>Удельный выброс  i-го вещества, г/м3</value>
+  </data>
+  <data name="FormulaNi" xml:space="preserve">
+    <value>Число аппаратов, на которых осуществляется операция с выбросами в атмосферу за год</value>
+  </data>
+  <data name="FormulaTi" xml:space="preserve">
+    <value>Продолжительность технологической операции, с</value>
+  </data>
+  <data name="FormulaVi" xml:space="preserve">
+    <value>Объём выхлопных газов, м3/с</value>
+  </data>
+  <data name="FormulaGr" xml:space="preserve">
+    <value>Годовой выброс газа в атмосферу, т/год</value>
+  </data>
+  <data name="FormulaK" xml:space="preserve">
+    <value>Норма затрат газа в период эксплуатации ПХГ, К = 0.6 – 0.7</value>
+  </data>
+  <data name="FormulaKiMif" xml:space="preserve">
+    <value>Коэффициент выхода эмиссий</value>
+  </data>
+  <data name="FormulaRoRGr" xml:space="preserve">
+    <value>Плотность газа, кг/м3</value>
+  </data>
+  <data name="FormulaVrGr" xml:space="preserve">
+    <value>Объём транспортируемого газа в год, млрд. м3</value>
+  </data>
+  <data name="FormulaVtr" xml:space="preserve">
+    <value>Объем топливных газов, м3/сек</value>
+  </data>
+  <data name="FormulaCoal" xml:space="preserve">
+    <value>Уголь</value>
+  </data>
+  <data name="FormulaGas" xml:space="preserve">
+    <value>Газ</value>
+  </data>
+  <data name="FormulaNgvsHol" xml:space="preserve">
+    <value>Безразмерный коэффициент (для случая холодного выброса)</value>
+  </data>
+  <data name="FormulaPDVhol" xml:space="preserve">
+    <value>Предельно допустимый выброс вредных веществ для случая холодного выброса, г/с</value>
+  </data>
+  <data name="FormulaUmHol" xml:space="preserve">
+    <value>Коэффициент максимальный (для случая холодного выброса)</value>
+  </data>
+  <data name="FormulaVgf" xml:space="preserve">
+    <value>Количество вредных веществ выбрасываемых в атмосферу при сжигании газа на факеле, кг/ч</value>
+  </data>
+  <data name="FormulaDd" xml:space="preserve">
+    <value>Отношение внутреннего диаметра газопровода к внутреннему диаметру продувочной свечи</value>
+  </data>
+  <data name="FormulaPcp" xml:space="preserve">
+    <value>Давление в газопроводе</value>
+  </data>
+  <data name="FormulaTog" xml:space="preserve">
+    <value>Время опорожнения участка газопровода</value>
+  </data>
+  <data name="FormulaTogm" xml:space="preserve">
+    <value>Отношение рабочего сечения крана к сечению продувочной свечи</value>
+  </data>
+  <data name="FormulaDelta" xml:space="preserve">
+    <value>Относительный вес</value>
+  </data>
+  <data name="FormulaPz" xml:space="preserve">
+    <value>Давление, атм</value>
+  </data>
+  <data name="FormulaTz" xml:space="preserve">
+    <value>Температура, °C</value>
+  </data>
+  <data name="FormulaDv" xml:space="preserve">
+    <value>Диаметр участка газопровода, мм</value>
+  </data>
+  <data name="FormulaLv" xml:space="preserve">
+    <value>Длина участка газопровода, м</value>
+  </data>
+  <data name="FormulaPv" xml:space="preserve">
+    <value>Давление, МПа</value>
+  </data>
+  <data name="FormulaVgraf" xml:space="preserve">
+    <value>Объём выбросов газа в атмосферу при продувке, м3 за одну продувку</value>
+  </data>
+  <data name="FormulaGrGrs" xml:space="preserve">
+    <value>Годовые выбросы газа ГРС, т/год</value>
+  </data>
+  <data name="FormulaGrGrsS" xml:space="preserve">
+    <value>Годовые выбросы сераорганических веществ для ГРС, т/год</value>
+  </data>
+  <data name="FormulaGrKs" xml:space="preserve">
+    <value>Годовые выбросы газа КС, т/год</value>
+  </data>
+  <data name="FormulaGrKsS" xml:space="preserve">
+    <value>Годовые выбросы сераорганических веществ для КС, т/год</value>
+  </data>
+  <data name="FormulaGrPhg" xml:space="preserve">
+    <value>Годовые выбросы газа ПХГ, т/год</value>
+  </data>
+  <data name="FormulaGrPhgS" xml:space="preserve">
+    <value>Годовые выбросы сераорганических веществ для ПХГ, т/год</value>
+  </data>
+  <data name="FormulaMrPhgS" xml:space="preserve">
+    <value>Количество сераорганического вещества в м3 газа (ПХГ), г/м3</value>
+  </data>
+  <data name="FormulaMsKsS" xml:space="preserve">
+    <value>Количество сераорганического вещества в м3 газа (КС), г/м3</value>
+  </data>
+  <data name="FormulaQgrs" xml:space="preserve">
+    <value>Производительность ГРС, млн. м3 /сутки</value>
+  </data>
+  <data name="FormulaQgrsS" xml:space="preserve">
+    <value>Производительность ГРС, млн. м3 /сутки</value>
+  </data>
+  <data name="FormulaRoPhgKs" xml:space="preserve">
+    <value>Плотность газа, кг/м3</value>
+  </data>
+  <data name="FormulaVgrPhg" xml:space="preserve">
+    <value>Объем транспортируемого газа за год (период отбора плюс период закачкой), млрд. м3/год</value>
+  </data>
+  <data name="FormulaVks" xml:space="preserve">
+    <value>Объем выброса газа при i-тoй технологической операции, м3</value>
+  </data>
+  <data name="FormulaVksS" xml:space="preserve">
+    <value>Объем выброса газа при i-тoй технологической операции, м3</value>
+  </data>
+  <data name="FormulaVphgS" xml:space="preserve">
+    <value>Объем транспортируемого газа за год (период отбора плюс период закачкой), м3/год</value>
+  </data>
+  <data name="FormulaКphg" xml:space="preserve">
+    <value>Коэффициент затрат газа на технологические операции</value>
+  </data>
+  <data name="FormulaКphgS" xml:space="preserve">
+    <value>Коэффициент затрат газа на технологические операции</value>
+  </data>
+  <data name="withoutSteam" xml:space="preserve">
+    <value>без подачи пара</value>
+  </data>
+  <data name="withSteam" xml:space="preserve">
+    <value>с подачей пара</value>
+  </data>
+  <data name="gasEngine" xml:space="preserve">
+    <value>для газомоторных агрегатов</value>
+  </data>
+  <data name="gasTurbine" xml:space="preserve">
+    <value>для газотурбинных агрегатов</value>
+  </data>
+  <data name="FormulaCiDg" xml:space="preserve">
+    <value>Удельные выбросы i-го вещества на 1 м3 дымовых газов, г/м3</value>
+  </data>
+  <data name="FormulaCsSa" xml:space="preserve">
+    <value>Концентрация соединения серы в топливном газе, % вес</value>
+  </data>
+  <data name="FormulaGdg" xml:space="preserve">
+    <value>Годовые выбросы продуктов сгорания дымовых газов в камерах сгорания ГПА, т/год</value>
+  </data>
+  <data name="FormulaGdgCO" xml:space="preserve">
+    <value>Годовые выбросы продуктов сгорания дымовых газов в камерах сгорания ГПА (для газомоторных агрегатов), т/год</value>
+  </data>
+  <data name="FormulaGdgNOX" xml:space="preserve">
+    <value>Годовые выбросы продуктов сгорания дымовых газов в камерах сгорания ГПА (для газотурбинных агрегатов), т/год</value>
+  </data>
+  <data name="FormulaGsa" xml:space="preserve">
+    <value>Годовые выбросы сернистого ангидрида для топливных газов, содержащих сераорганические соединения, т/год</value>
+  </data>
+  <data name="FormulaGtg" xml:space="preserve">
+    <value>Годовые выбросы продуктов сгорания топливного газа (NOх, CO, SО2) при работе j-ro типа ГПА, т/год</value>
+  </data>
+  <data name="FormulaKiDg" xml:space="preserve">
+    <value>Коэффициент выброса i -го вещества</value>
+  </data>
+  <data name="FormulaMiTg" xml:space="preserve">
+    <value>Удельный выброс i-го вещества на 1 м3 топливного газа, г/м3</value>
+  </data>
+  <data name="FormulaRoSa" xml:space="preserve">
+    <value>Плотность газа, кг/м3</value>
+  </data>
+  <data name="FormulaVgdg" xml:space="preserve">
+    <value>Объем дымовых газов на j-тый тип ГПА, м3/год</value>
+  </data>
+  <data name="FormulaVsa" xml:space="preserve">
+    <value>Объем топливного газа, содержащего сераорганические соединения, на j-тый тип ГПА, м3/год</value>
+  </data>
+  <data name="FormulaVtg" xml:space="preserve">
+    <value>Объем топливного газа на j-тый тип ГПА, м3/год</value>
+  </data>
+  <data name="FormulaMiFactCO" xml:space="preserve">
+    <value>Фактические выбросы CO от ГПА</value>
+  </data>
+  <data name="FormulaMiFactNOx" xml:space="preserve">
+    <value>Фактические выбросы NOx от ГПА</value>
+  </data>
+  <data name="FormulaMiFact" xml:space="preserve">
+    <value>Фактические выбросы NOx и CO от ГПА</value>
+  </data>
+  <data name="emissionsInGS" xml:space="preserve">
+    <value>Определение выбросов в г/с</value>
+  </data>
+  <data name="emissionsInT" xml:space="preserve">
+    <value>Определение выбросов в т</value>
+  </data>
+  <data name="FormulaKn" xml:space="preserve">
+    <value>Размерность выбросов</value>
+  </data>
+  <data name="withoutSuperheater" xml:space="preserve">
+    <value>Для котлов без промпароперегревателей, очистка поверхности которых производится в остановленном состоянии</value>
+  </data>
+  <data name="withSuperheater" xml:space="preserve">
+    <value>Для котлов с промпароперегревателями, очистка поверхности которых производится в остановленном состоянии</value>
+  </data>
+  <data name="liquidSlagRemoval" xml:space="preserve">
+    <value>при жидком шлакоудалении</value>
+  </data>
+  <data name="solidAshRemoval" xml:space="preserve">
+    <value>при твёрдом шлакоудалении</value>
+  </data>
+  <data name="dry" xml:space="preserve">
+    <value>Сухая</value>
+  </data>
+  <data name="flammable" xml:space="preserve">
+    <value>Горючая</value>
+  </data>
+  <data name="FormulaFuelTransfer" xml:space="preserve">
+    <value>Перевод массы топлива</value>
+  </data>
+  <data name="requiredFuelMass" xml:space="preserve">
+    <value>Искомая масса топлива</value>
+  </data>
+  <data name="selectOneOption" xml:space="preserve">
+    <value>Выберите один вариант</value>
+  </data>
+  <data name="targetMassOfFuel" xml:space="preserve">
+    <value>Заданная масса топлива</value>
+  </data>
+  <data name="working" xml:space="preserve">
+    <value>Рабочая</value>
+  </data>
+</root>

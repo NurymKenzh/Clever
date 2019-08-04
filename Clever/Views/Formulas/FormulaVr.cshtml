@@ -1,0 +1,60 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaVr"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>@SharedLocalizer["FormulaVr"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaVr">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaVro2"]</label>
+                <input id="Vro2" class="form-control" name="Vro2" value="@ViewBag.Vro2" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaVn2"]</label>
+                <input id="Vn2" class="form-control" name="Vn2" value="@ViewBag.Vn2" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaVh2o"]</label>
+                <input id="Vh2o" class="form-control" name="Vh2o" value="@ViewBag.Vh2o" />
+            </div>
+            @if (ViewBag.Vr != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaVr"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Vr" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Vro2"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Vn2"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Vh2o"));
+    });
+</script>

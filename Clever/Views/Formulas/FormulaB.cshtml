@@ -1,0 +1,60 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaB"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>@SharedLocalizer["FormulaB"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaB">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaQ"]</label>
+                <input id="Q" class="form-control" name="Q" value="@ViewBag.Q" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaKPDKA"]</label>
+                <input id="KPDKA" class="form-control" name="KPDKA" value="@ViewBag.KPDKA" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaQri"]</label>
+                <input id="Qri" class="form-control" name="Qri" value="@ViewBag.Qri" />
+            </div>
+            @if (ViewBag.B != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaB"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.B" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Q"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("KPDKA"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Qri"));
+    });
+</script>

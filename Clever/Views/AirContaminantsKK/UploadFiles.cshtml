@@ -1,0 +1,84 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["ImportFromFiles"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@SharedLocalizer["UploadFiles"]</h2>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-form/jquery.form.js"></script>
+
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm("UploadFiles", "AirContaminantsKK", FormMethod.Post, new { enctype = "multipart/form-data", id = "uploadform" }))
+        {
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Files</label>
+                <input type="file" name="Files" multiple />
+            </div>
+            <div hidden="hidden">
+                @Html.Editor("SortOrder", null, new { value = ViewBag.SortOrder })
+                @Html.Editor("NameFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("NumberCASFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("FormulaFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("MaximumPermissibleConcentrationOneTimeMaximumFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("MaximumPermissibleConcentrationDailyAverageFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("HazardClassFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("CodeFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("ApproximateSafeExposureLevelFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("PageSize", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                @Html.Editor("Page", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+            </div>
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Upload"]" class="btn btn-default" />
+            </div>
+        }
+    </div>
+</div>
+
+<div class="progress" style="width:50%">
+    <div class="progress-bar"></div>
+    <div class="percent">0%</div>
+</div>
+
+<div id="status"></div>
+
+@if (!string.IsNullOrEmpty(ViewBag.Report))
+{
+    <div>
+        @ViewBag.Report
+    </div>
+}
+
+<div>
+    @Html.ActionLink(SharedLocalizer["BackToList"], "Index", new { Page = ViewBag.Page, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter })
+</div>
+
+<script>
+    $.noConflict();
+    jQuery(document).ready(function ($) {
+        var bar = $('.progress-bar');
+        var percent = $('.percent');
+        var status = $('#status');
+        $('#uploadform').ajaxForm({
+            beforeSend: function () {
+                status.empty();
+                var percentVal = '0%';
+                bar.width(percentVal);
+                percent.html(percentVal);
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                var percentVal = percentComplete + '%';
+                bar.width(percentVal);
+                percent.html(percentVal);
+            },
+            complete: function (xhr) {
+                status.html(xhr.responseText);
+            }
+        });
+    });
+</script>

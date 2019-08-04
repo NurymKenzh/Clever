@@ -1,0 +1,137 @@
+﻿@model IEnumerable<Clever.Models.AirContaminant>
+@using System.Net
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a> | <a asp-action="UploadFiles">Upload Files</a>
+</p>
+@using (Html.BeginForm("Index", "AirContaminants", new { SortOrder = ViewBag.SortOrder, Name = ViewBag.NameFilter, NumberCAS = ViewBag.NumberCASFilter, HazardClass = ViewBag.HazardClassFilter }, FormMethod.Get))
+{
+    @Html.Editor("SortOrder", null, new { htmlAttributes = new { @hidden = "hidden" }, value = ViewBag.SortOrder })
+    @if (ViewBag.EndPage > 1)
+    {
+        <ul class="pagination">
+            @if (ViewBag.Page > 1)
+            {
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&laquo;&laquo;"), "Index",
+                        new { PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, Name = ViewBag.NameFilter, NumberCAS = ViewBag.NumberCASFilter, HazardClass = ViewBag.HazardClassFilter })
+                </li>
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&laquo;"), "Index",
+                    new { PageSize = ViewBag.PageSize, Page = ViewBag.Page - 1, SortOrder = ViewBag.SortOrder, Name = ViewBag.NameFilter, NumberCAS = ViewBag.NumberCASFilter, HazardClass = ViewBag.HazardClassFilter })
+                </li>
+            }
+
+            @for (var page = (int)ViewBag.StartPage; page <= (int)ViewBag.EndPage; page++)
+            {
+                <li class="@(page == ViewBag.Page ? "active" : "")">
+                    @Html.ActionLink(page.ToString(), "Index",
+                        new { PageSize = ViewBag.PageSize, Page = page, SortOrder = ViewBag.SortOrder, Name = ViewBag.NameFilter, NumberCAS = ViewBag.NumberCASFilter, HazardClass = ViewBag.HazardClassFilter })
+                </li>
+            }
+
+            @if (ViewBag.Page < ViewBag.TotalPages)
+            {
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&raquo;"), "Index",
+                        new { PageSize = ViewBag.PageSize, Page = ViewBag.Page + 1, SortOrder = ViewBag.SortOrder, Name = ViewBag.NameFilter, NumberCAS = ViewBag.NumberCASFilter, HazardClass = ViewBag.HazardClassFilter })
+                </li>
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&raquo;&raquo;"), "Index",
+                        new { PageSize = ViewBag.PageSize, Page = ViewBag.TotalPages, SortOrder = ViewBag.SortOrder, Name = ViewBag.NameFilter, NumberCAS = ViewBag.NumberCASFilter, HazardClass = ViewBag.HazardClassFilter })
+                </li>
+            }
+        </ul>
+    }
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().Name).ToString(), "Index",
+                        new { PageSize = ViewBag.PageSize, SortOrder = ViewBag.NameSort, Name = ViewBag.NameFilter, NumberCAS = ViewBag.NumberCASFilter, HazardClass = ViewBag.HazardClassFilter })
+                    <br />
+                    @Html.Editor("Name", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                </th>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().NumberCAS).ToString(), "Index",
+                        new { PageSize = ViewBag.PageSize, SortOrder = ViewBag.NumberCASSort, Name = ViewBag.NameFilter, NumberCAS = ViewBag.NumberCASFilter, HazardClass = ViewBag.HazardClassFilter })
+                    <br />
+                    @Html.Editor("NumberCAS", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                </th>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().HazardClass).ToString(), "Index",
+                        new { PageSize = ViewBag.PageSize, SortOrder = ViewBag.HazardClassSort, Name = ViewBag.NameFilter, NumberCAS = ViewBag.NumberCASFilter, HazardClass = ViewBag.HazardClassFilter })
+                    <br />
+                    @Html.Editor("HazardClass", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                </th>
+                <th>
+                    @Html.DropDownList("PageSize", (IEnumerable<SelectListItem>)ViewBag.PageSizeList, htmlAttributes: new { @class = "form-control" })
+                    <input type="submit" value="Find" class="btn btn-default">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumberCAS)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HazardClass)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @if (ViewBag.EndPage > 1)
+    {
+        <ul class="pagination">
+            @if (ViewBag.Page > 1)
+            {
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&laquo;&laquo;"), "Index",
+                        new { PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, Name = ViewBag.NameFilter, NumberCAS = ViewBag.NumberCASFilter, HazardClass = ViewBag.HazardClassFilter })
+                </li>
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&laquo;"), "Index",
+                        new { PageSize = ViewBag.PageSize, Page = ViewBag.Page - 1, SortOrder = ViewBag.SortOrder, Name = ViewBag.NameFilter, NumberCAS = ViewBag.NumberCASFilter, HazardClass = ViewBag.HazardClassFilter })
+                </li>
+            }
+
+            @for (var page = (int)ViewBag.StartPage; page <= (int)ViewBag.EndPage; page++)
+            {
+                <li class="@(page == ViewBag.Page ? "active" : "")">
+                    @Html.ActionLink(page.ToString(), "Index",
+                        new { PageSize = ViewBag.PageSize, Page = page, SortOrder = ViewBag.SortOrder, Name = ViewBag.NameFilter, NumberCAS = ViewBag.NumberCASFilter, HazardClass = ViewBag.HazardClassFilter })
+                </li>
+            }
+
+            @if (ViewBag.Page < ViewBag.TotalPages)
+            {
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&raquo;"), "Index",
+                        new { PageSize = ViewBag.PageSize, Page = ViewBag.Page + 1, SortOrder = ViewBag.SortOrder, Name = ViewBag.NameFilter, NumberCAS = ViewBag.NumberCASFilter, HazardClass = ViewBag.HazardClassFilter })
+                </li>
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&raquo;&raquo;"), "Index",
+                        new { PageSize = ViewBag.PageSize, Page = ViewBag.TotalPages, SortOrder = ViewBag.SortOrder, Name = ViewBag.NameFilter, NumberCAS = ViewBag.NumberCASFilter, HazardClass = ViewBag.HazardClassFilter })
+                </li>
+            }
+        </ul>
+    }
+}

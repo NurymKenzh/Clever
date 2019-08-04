@@ -1,0 +1,54 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaNso2"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>@SharedLocalizer["FormulaNso2"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaNso2">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaCh2s"]</label>
+                <input id="Ch2s" class="form-control" name="Ch2s" value="@ViewBag.Ch2s" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaBgf"]</label>
+                <input id="Bgf" class="form-control" name="Bgf" value="@ViewBag.Bgf" />
+            </div>
+            @if (ViewBag.Nso2 != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaNso2"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Nso2" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Ch2s"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Bgf"));
+    });
+</script>

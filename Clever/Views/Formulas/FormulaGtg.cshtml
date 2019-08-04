@@ -1,0 +1,100 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaGtg"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>@SharedLocalizer["FormulaGtg"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaGtg">
+            @{
+                decimal[] VtgArray = ViewBag.Vtg;
+                int countVtg = VtgArray.Count();
+            }
+            <input type="button" value="@SharedLocalizer["Add"]" onclick="AddVtg()" class="form-control">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["Count"]</label>
+                <input id="VtgCount" class="form-control" value="@countVtg" readonly="readonly" />
+            </div>
+            @for (int i = 0; i < countVtg; i++)
+            {
+                string divId = "VtgDiv" + i.ToString(),
+                    inputId = "Vtg" + i.ToString();
+                decimal? value = VtgArray[i] == 0 ? (decimal?)null : VtgArray[i];
+                <div class="form-group" id="@divId">
+                    <label class="control-label">@SharedLocalizer["FormulaVtg"]</label>
+                    <input id="@inputId" class="form-control" name="Vtg[@i.ToString()]" value="@value" />
+                    <input type="button" class="form-control" value="@SharedLocalizer["Remove"]" onclick="RemoveVtg(@i)">
+                </div>
+            }
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaMiTg"]</label>
+                <input id="MiTg" class="form-control" name="MiTg" value="@ViewBag.MiTg" />
+            </div>
+            @if (ViewBag.Gtg != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaGtg"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Gtg" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("MiTg"));
+    });
+</script>
+
+<script>
+    @{
+        decimal[] VtgArray2 = ViewBag.Vtg;
+        int countVtg2 = VtgArray2.Count();
+    }
+    var countVtg = @countVtg2;
+
+    for (i = 0; i < countVtg; i++) {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Vtg" + i.toString()));
+    }
+
+    function AddVtg() {
+        var newVtg = '<div class="form-group" id="VtgDiv' + countVtg.toString() + '">' +
+            '<label class="control-label">@SharedLocalizer["FormulaVtg"]</label>' +
+            '<input id="Vtg' + countVtg.toString() + '" class="form-control" name="Vtg[' + countVtg.toString() + ']" />' +
+            '<input type="button" class="form-control" value="@SharedLocalizer["Remove"]" onclick="RemoveVtg(' + countVtg.toString() + ')">' +
+            '</div>';
+        $("#VtgDiv" + (countVtg - 1).toString()).after(newVtg);
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Vtg" + countVtg.toString()));
+        countVtg += 1;
+        $('#VtgCount').val(countVtg);
+    }
+
+    function RemoveVtg(i) {
+        $('#Vtg' + i.toString()).val(0);
+        $('#VtgDiv' + i.toString()).hide();
+    }
+</script>

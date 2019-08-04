@@ -1,0 +1,53 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaCjTB"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>@SharedLocalizer["FormulaCjTB"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaCjTB">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaCTB"]</label>
+                <input id="CTB" class="form-control" name="CTB" value="@ViewBag.CTB" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaAFact"]</label>
+                <input id="AFact" class="form-control" name="AFact" value="@ViewBag.AFact" />
+            </div>
+            @if (ViewBag.CjTB != null)
+            {
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaCjTB"]</label>
+                <input class="form-control" readonly="readonly" value="@ViewBag.CjTB" />
+            </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("CTB"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("AFact"));
+    });
+</script>

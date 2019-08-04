@@ -1,0 +1,120 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaVsst"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>@SharedLocalizer["FormulaVsst"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaVsst">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaVk"]</label>
+                <input id="Vk" class="form-control" name="Vk" value="@ViewBag.Vk" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaPa"]</label>
+                <input id="Pa" class="form-control" name="Pa" value="@ViewBag.Pa" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["Formulat0"]</label>
+                <input id="t0" class="form-control" name="t0" value="@ViewBag.t0" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaPo"]</label>
+                <input id="Po" class="form-control" name="Po" value="@ViewBag.Po" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["Formulatn"]</label>
+                <input id="tn" class="form-control" name="tn" value="@ViewBag.tn" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaPz"]</label>
+                <input id="Pz" class="form-control" name="Pz" value="@ViewBag.Pz" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaDelta"]</label>
+                <input id="Delta" class="form-control" name="Delta" value="@ViewBag.Delta" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaTz"]</label>
+                <input id="Tz" class="form-control" name="Tz" value="@ViewBag.Tz" />
+            </div>
+            @if (ViewBag.Vsst != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaVsst"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Vsst" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Vk"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Pa"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("t0"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Po"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("tn"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Pz"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Delta"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Tz"));
+    });
+</script>

@@ -1,0 +1,64 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaMSO2"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>@SharedLocalizer["FormulaMSO2"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaMSO2">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaCjSO2"]</label>
+                <input id="CjSO2" class="form-control" name="CjSO2" value="@ViewBag.CjSO2" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaVcr"]</label>
+                <input id="Vcr" class="form-control" name="Vcr" value="@ViewBag.Vcr" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaBp"]</label>
+                <input id="Bp" class="form-control" name="Bp" value="@ViewBag.Bp" />
+            </div>
+            @if (ViewBag.MSO2 != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaMSO2"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.MSO2" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("CjSO2"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Vcr"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Bp"));
+    });
+</script>

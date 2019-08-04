@@ -1,0 +1,87 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaCr"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>@SharedLocalizer["FormulaCr"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaCr">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaArW"]</label>
+                <input id="ArW" class="form-control" name="ArW" value="@ViewBag.ArW" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaSrW"]</label>
+                <input id="SrW" class="form-control" name="SrW" value="@ViewBag.SrW" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaHrW"]</label>
+                <input id="HrW" class="form-control" name="HrW" value="@ViewBag.HrW" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaOrW"]</label>
+                <input id="OrW" class="form-control" name="OrW" value="@ViewBag.OrW" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaNrW"]</label>
+                <input id="NrW" class="form-control" name="NrW" value="@ViewBag.NrW" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaWr"]</label>
+                <input id="Wr" class="form-control" name="Wr" value="@ViewBag.Wr" />
+            </div>
+            @if (ViewBag.Cr != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaCr"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Cr" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("ArW"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("SrW"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("HrW"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("OrW"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("NrW"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Wr"));
+    });
+</script>

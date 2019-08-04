@@ -1,0 +1,131 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaYno2"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>@SharedLocalizer["FormulaYno2"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaYno2">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaNfact"]</label>
+                <input id="Nfact" class="form-control" name="Nfact" value="@ViewBag.Nfact" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaNnom"]</label>
+                <input id="Nnom" class="form-control" name="Nnom" value="@ViewBag.Nnom" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaDfact"]</label>
+                <input id="Dfact" class="form-control" name="Dfact" value="@ViewBag.Dfact" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaDnom"]</label>
+                <input id="Dnom" class="form-control" name="Dnom" value="@ViewBag.Dnom" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaYno2Nom"]</label>
+                <input id="Yno2Nom" class="form-control" name="Yno2Nom" value="@ViewBag.Yno2Nom" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaDyxNo2"]</label>
+                <input id="DyxNo2" class="form-control" name="DyxNo2" value="@ViewBag.DyxNo2" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaCno2"]</label>
+                <input id="Cno2" class="form-control" name="Cno2" value="@ViewBag.Cno2" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaPsiNo2"]</label>
+                <input id="PsiNo2" class="form-control" name="PsiNo2" value="@ViewBag.PsiNo2" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaUpsNo2"]</label>
+                <input id="UpsNo2" class="form-control" name="UpsNo2" value="@ViewBag.UpsNo2" />
+            </div>
+            @if (ViewBag.Yno2 != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaYno2"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Yno2" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Nfact"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Nnom"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Dfact"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Dnom"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Yno2Nom"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("DyxNo2"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Cno2"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("PsiNo2"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("UpsNo2"));
+    });
+</script>

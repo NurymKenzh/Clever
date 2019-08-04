@@ -1,0 +1,262 @@
+﻿@model IEnumerable<Clever.Models.CompanyKK>
+@using System.Net
+@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["CompaniesKK"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@SharedLocalizer["CompaniesKK"]</h2>
+
+<p>
+    @Html.ActionLink(SharedLocalizer["Create"], "Create", new { Search = ViewBag.Search, Page = ViewBag.Page, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter = ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter }) |
+    @Html.ActionLink(SharedLocalizer["UploadFiles"], "UploadFiles", new { Page = ViewBag.Page, Search = ViewBag.Search, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter = ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+</p>
+@using (Html.BeginForm("Index", "CompaniesKK", new { SortOrder = ViewBag.SortOrder, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter = ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter }, FormMethod.Get))
+{
+    @Html.Editor("SortOrder", null, new { htmlAttributes = new { @hidden = "hidden" }, value = ViewBag.SortOrder })
+    @if (ViewBag.EndPage > 1)
+    {
+        <ul class="pagination">
+            @if (ViewBag.Page > 1)
+            {
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&laquo;&laquo;"), "Index",
+                        new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                </li>
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&laquo;"), "Index",
+                    new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, Page = ViewBag.Page - 1, SortOrder = ViewBag.SortOrder, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                </li>
+            }
+
+            @for (var page = (int)ViewBag.StartPage; page <= (int)ViewBag.EndPage; page++)
+            {
+                <li class="@(page == ViewBag.Page ? "active" : "")">
+                    @Html.ActionLink(page.ToString(), "Index",
+                        new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, Page = page, SortOrder = ViewBag.SortOrder, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                </li>
+            }
+
+            @if (ViewBag.Page < ViewBag.TotalPages)
+            {
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&raquo;"), "Index",
+                        new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, Page = ViewBag.Page + 1, SortOrder = ViewBag.SortOrder, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                </li>
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&raquo;&raquo;"), "Index",
+                        new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, Page = ViewBag.TotalPages, SortOrder = ViewBag.SortOrder, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                </li>
+            }
+        </ul>
+    }
+    @Html.Editor("Search", null, new { htmlAttributes = new { @class = "form-control", @placeholder = SharedLocalizer["Search"] }, value = "" })
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().BIN).ToString(), "Index",
+                                new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, SortOrder = ViewBag.BINSort, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                            <br />
+                            @Html.Editor("BINFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                        </th>
+                        <th>
+                            @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().NameKK).ToString(), "Index",
+                                new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, SortOrder = ViewBag.NameKKSort, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                            <br />
+                            @Html.Editor("NameKKFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                        </th>
+                        <th>
+                            @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().NameRU).ToString(), "Index",
+                                new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, SortOrder = ViewBag.NameRUSort, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                            <br />
+                            @Html.Editor("NameRUFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                        </th>
+                        <th>
+                            @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().DateRegister).ToString(), "Index",
+                                new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, SortOrder = ViewBag.DateRegisterSort, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                            <br />
+                            @Html.Editor("DateRegisterFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                        </th>
+                        <th>
+                            @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().OKED).ToString(), "Index",
+                                new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, SortOrder = ViewBag.OKEDSort, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                            <br />
+                            @Html.Editor("OKEDFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                        </th>
+                        <th>
+                            @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().ActivityKindKK).ToString(), "Index",
+                                new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, SortOrder = ViewBag.ActivityKindKKSort, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                            <br />
+                            @Html.Editor("ActivityKindKKFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                        </th>
+                        <th>
+                            @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().ActivityKindRU).ToString(), "Index",
+                                new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, SortOrder = ViewBag.ActivityKindRUSort, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                            <br />
+                            @Html.Editor("ActivityKindRUFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                        </th>
+                        <th>
+                            @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().OKEDSecondary).ToString(), "Index",
+                                new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, SortOrder = ViewBag.OKEDSecondarySort, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                            <br />
+                            @Html.Editor("OKEDSecondaryFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                        </th>
+                        <th>
+                            @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().KRP).ToString(), "Index",
+                                new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, SortOrder = ViewBag.KRPSort, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                            <br />
+                            @Html.Editor("KRPFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                        </th>
+                        <th>
+                            @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().KRPNameKK).ToString(), "Index",
+                                new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, SortOrder = ViewBag.KRPNameKKSort, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                            <br />
+                            @Html.Editor("KRPNameKKFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                        </th>
+                        <th>
+                            @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().KRPNameRU).ToString(), "Index",
+                                new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, SortOrder = ViewBag.KRPNameRUSort, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                            <br />
+                            @Html.Editor("KRPNameRUFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                        </th>
+                        <th>
+                            @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().CATO).ToString(), "Index",
+                                new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, SortOrder = ViewBag.CATOSort, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                            <br />
+                            @Html.Editor("CATOFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                        </th>
+                        <th>
+                            @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().LocalityKK).ToString(), "Index",
+                                new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, SortOrder = ViewBag.LocalityKKSort, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                            <br />
+                            @Html.Editor("LocalityKKFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                        </th>
+                        <th>
+                            @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().LocalityRU).ToString(), "Index",
+                                new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, SortOrder = ViewBag.LocalityRUSort, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                            <br />
+                            @Html.Editor("LocalityRUFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                        </th>
+                        <th>
+                            @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().LegalAddress).ToString(), "Index",
+                                new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, SortOrder = ViewBag.LegalAddressSort, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                            <br />
+                            @Html.Editor("LegalAddressFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                        </th>
+                        <th>
+                            @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().HeadName).ToString(), "Index",
+                                new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, SortOrder = ViewBag.HeadNameSort, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                            <br />
+                            @Html.Editor("HeadNameFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                        </th>
+                        <th>
+                            @Html.DropDownList("PageSize", (IEnumerable<SelectListItem>)ViewBag.PageSizeList, htmlAttributes: new { @class = "form-control" })
+                            <input type="submit" value="@SharedLocalizer["Find"]" class="btn btn-default">
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BIN)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NameKK)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NameRU)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DateRegister)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OKED)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ActivityKindKK)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ActivityKindRU)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OKEDSecondary)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.KRP)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.KRPNameKK)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.KRPNameRU)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CATO)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LocalityKK)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LocalityRU)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LegalAddress)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HeadName)
+                            </td>
+                            <td>
+                                @Html.ActionLink(SharedLocalizer["Edit"], "Edit", new { Id = item.Id, Page = ViewBag.Page, Search = ViewBag.Search, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter = ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter }) |
+                                @Html.ActionLink(SharedLocalizer["Details"], "Details", new { Id = item.Id, Page = ViewBag.Page, Search = ViewBag.Search, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter = ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter }) |
+                                @Html.ActionLink(SharedLocalizer["Delete"], "Delete", new { Id = item.Id, Page = ViewBag.Page, Search = ViewBag.Search, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter = ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    
+    @if (ViewBag.EndPage > 1)
+    {
+        <ul class="pagination">
+            @if (ViewBag.Page > 1)
+            {
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&laquo;&laquo;"), "Index",
+                        new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                </li>
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&laquo;"), "Index",
+                        new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, Page = ViewBag.Page - 1, SortOrder = ViewBag.SortOrder, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                </li>
+            }
+
+            @for (var page = (int)ViewBag.StartPage; page <= (int)ViewBag.EndPage; page++)
+            {
+                <li class="@(page == ViewBag.Page ? "active" : "")">
+                    @Html.ActionLink(page.ToString(), "Index",
+                        new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, Page = page, SortOrder = ViewBag.SortOrder, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                </li>
+            }
+
+            @if (ViewBag.Page < ViewBag.TotalPages)
+            {
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&raquo;"), "Index",
+                        new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, Page = ViewBag.Page + 1, SortOrder = ViewBag.SortOrder, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                </li>
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&raquo;&raquo;"), "Index",
+                        new { Search = ViewBag.Search, PageSize = ViewBag.PageSize, Page = ViewBag.TotalPages, SortOrder = ViewBag.SortOrder, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter =ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+                </li>
+            }
+        </ul>
+    }
+}

@@ -1,0 +1,54 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaVpg"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>@SharedLocalizer["FormulaVpg"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaVpg">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaBpg"]</label>
+                <input id="Bpg" class="form-control" name="Bpg" value="@ViewBag.Bpg" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaV1vp"]</label>
+                <input id="V1vp" class="form-control" name="V1vp" value="@ViewBag.V1vp" />
+            </div>
+            @if (ViewBag.Vpg != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaVpg"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Vpg" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Bpg"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("V1vp"));
+    });
+</script>

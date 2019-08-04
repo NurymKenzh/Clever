@@ -1,0 +1,231 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaFuelTransfer"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
+<h2>@SharedLocalizer["FormulaFuelTransfer"]</h2>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#container div').css('display', 'none');		   //Скрываем все блоки
+
+        id1 = $('#givenMass option:selected').val();
+        id2 = $('#targetMass option:selected').val();
+        $('#' + id1 + id2).show();
+
+        $("#givenMass").change(function () {						 //При смене
+            $('#container div').css('display', 'none');  //Скрываем все открытые блоки
+            id1 = $('#givenMass option:selected').val();	   //Вытаскиваем value
+            $('#' + id1 + id2).show();                              //Показываем блок c необходимым id
+        });
+
+        $("#targetMass").change(function () {						 //При смене
+            $('#container div').css('display', 'none');  //Скрываем все открытые блоки
+            id2 = $('#targetMass option:selected').val();       //Вытаскиваем value
+            $('#' + id1 + id2).show();								  //Показываем блок c необходимым id
+        });
+
+    });
+</script>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaFuelTransfer">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["targetMassOfFuel"]</label>
+                <select id="givenMass" class="form-control" name="givenMass">
+                    @if (ViewBag.givenMass == "g")
+                    {
+                        <option value="g" selected="selected">@SharedLocalizer["selectOneOption"]</option>
+                    }
+                    else
+                    {
+                        <option value="g">@SharedLocalizer["selectOneOption"]</option>
+                    }
+                    @if (ViewBag.givenMass == "g1")
+                    {
+                        <option value="g1" selected="selected">@SharedLocalizer["working"]</option>
+                    }
+                    else
+                    {
+                        <option value="g1">@SharedLocalizer["working"]</option>
+                    }
+                    @if (ViewBag.givenMass == "g2")
+                    {
+                        <option value="g2" selected="selected">@SharedLocalizer["dry"]</option>
+                    }
+                    else
+                    {
+                        <option value="g2">@SharedLocalizer["dry"]</option>
+                    }
+                    @if (ViewBag.givenMass == "g3")
+                    {
+                        <option value="g3" selected="selected">@SharedLocalizer["flammable"]</option>
+                    }
+                    else
+                    {
+                        <option value="g3">@SharedLocalizer["flammable"]</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["requiredFuelMass"]</label>
+                <select id="targetMass" class="form-control" name="targetMass">
+                    @if (ViewBag.targetMass == "t")
+                    {
+                        <option value="t" selected="selected">@SharedLocalizer["selectOneOption"]</option>
+                    }
+                    else
+                    {
+                        <option value="t">@SharedLocalizer["selectOneOption"]</option>
+                    }
+                    @if (ViewBag.targetMass == "t1")
+                    {
+                        <option value="t1" selected="selected">@SharedLocalizer["working"]</option>
+                    }
+                    else
+                    {
+                        <option value="t1">@SharedLocalizer["working"]</option>
+                    }
+                    @if (ViewBag.targetMass == "t2")
+                    {
+                        <option value="t2" selected="selected">@SharedLocalizer["dry"]</option>
+                    }
+                    else
+                    {
+                        <option value="t2">@SharedLocalizer["dry"]</option>
+                    }
+                    @if (ViewBag.targetMass == "t3")
+                    {
+                        <option value="t3" selected="selected">@SharedLocalizer["flammable"]</option>
+                    }
+                    else
+                    {
+                        <option value="t3">@SharedLocalizer["flammable"]</option>
+                    }
+                </select>
+            </div>
+
+            <div id="container">
+
+                <div id="g1t2" class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaWr"]</label>
+                    <input id="Wrg1t2" class="form-control" name="Wrg1t2" value="@ViewBag.Wrg1t2" />
+                </div>
+
+                <div id="g1t3" class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaWr"]</label>
+                    <input id="Wrg1t3" class="form-control" name="Wrg1t3" value="@ViewBag.Wrg1t3" />
+
+                    <label class="control-label">@SharedLocalizer["FormulaArW"]</label>
+                    <input id="ArWg1t3" class="form-control" name="ArWg1t3" value="@ViewBag.ArWg1t3" />
+                </div>
+
+                <div id="g2t1" class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaWr"]</label>
+                    <input id="Wrg2t1" class="form-control" name="Wrg2t1" value="@ViewBag.Wrg2t1" />
+                </div>
+
+                <div id="g2t3" class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaWr"]</label>
+                    <input id="Wrg2t3" class="form-control" name="Wrg2t3" value="@ViewBag.Wrg2t3" />
+
+                    <label class="control-label">@SharedLocalizer["FormulaAc"]</label>
+                    <input id="Acg2t3" class="form-control" name="Acg2t3" value="@ViewBag.Acg2t3" />
+                </div>
+
+                <div id="g3t1" class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaWr"]</label>
+                    <input id="Wrg3t1" class="form-control" name="Wrg3t1" value="@ViewBag.Wrg3t1" />
+
+                    <label class="control-label">@SharedLocalizer["FormulaArW"]</label>
+                    <input id="ArWg3t1" class="form-control" name="ArWg3t1" value="@ViewBag.ArWg3t1" />
+                </div>
+
+                <div id="g3t2" class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaWr"]</label>
+                    <input id="Wrg3t2" class="form-control" name="Wrg3t2" value="@ViewBag.Wrg3t2" />
+
+                    <label class="control-label">@SharedLocalizer["FormulaAc"]</label>
+                    <input id="Acg3t2" class="form-control" name="Acg3t2" value="@ViewBag.Acg3t2" />
+                </div>
+            </div>
+
+            @if (ViewBag.FuelTransfer != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaFuelTransfer"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.FuelTransfer" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("ArWg1t3"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("ArWg3t1"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Wrg1t2"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Wrg1t3"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Wrg2t1"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Wrg2t3"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Wrg3t1"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Wrg3t2"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Acg2t3"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Acg3t2"));
+    });
+</script>

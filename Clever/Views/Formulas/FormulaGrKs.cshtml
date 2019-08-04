@@ -1,0 +1,90 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaGrKs"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>@SharedLocalizer["FormulaGrKs"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaGrKs">
+            @{
+                decimal[] VksArray = ViewBag.Vks;
+                int countVks = VksArray.Count();
+            }
+            <input type="button" value="@SharedLocalizer["Add"]" onclick="AddVks()" class="form-control">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["Count"]</label>
+                <input id="VksCount" class="form-control" value="@countVks" readonly="readonly" />
+            </div>
+            @for (int i = 0; i < countVks; i++)
+            {
+                string divId = "VksDiv" + i.ToString(),
+                    inputId = "Vks" + i.ToString();
+                decimal? value = VksArray[i] == 0 ? (decimal?)null : VksArray[i];
+                <div class="form-group" id="@divId">
+                    <label class="control-label">@SharedLocalizer["FormulaVks"]</label>
+                    <input id="@inputId" class="form-control" name="Vks[@i.ToString()]" value="@value" />
+                    <input type="button" class="form-control" value="@SharedLocalizer["Remove"]" onclick="RemoveVks(@i)">
+                </div>
+            }
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaRor"]</label>
+                    <select asp-items="ViewBag.GasDensity13" name="RoPhgKs" class="form-control" id="RoPhgKs"></select>
+                </div>
+            @if (ViewBag.GrKs != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaGrKs"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.GrKs" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    @{
+        decimal[] VksArray2 = ViewBag.Vks;
+        int countVks2 = VksArray2.Count();
+    }
+    var countVks = @countVks2;
+
+    for (i = 0; i < countVks; i++) {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Vks" + i.toString()));
+    }
+
+    function AddVks() {
+        var newVks = '<div class="form-group" id="VksDiv' + countVks.toString() + '">' +
+            '<label class="control-label">@SharedLocalizer["FormulaVks"]</label>' +
+            '<input id="Vks' + countVks.toString() + '" class="form-control" name="Vks[' + countVks.toString() + ']" />' +
+            '<input type="button" class="form-control" value="@SharedLocalizer["Remove"]" onclick="RemoveVks(' + countVks.toString() + ')">' +
+            '</div>';
+        $("#VksDiv" + (countVks - 1).toString()).after(newVks);
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Vks" + countVks.toString()));
+        countVks += 1;
+        $('#VksCount').val(countVks);
+    }
+
+    function RemoveVks(i) {
+        $('#Vks' + i.toString()).val(0);
+        $('#VksDiv' + i.toString()).hide();
+    }
+</script>

@@ -1,0 +1,210 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaGasVolumeEmissionValues"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>Определение ПДВ и фактических выбросов на ПХГ и КС</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaGAS10">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["Formulai1"]</label>
+                <input id="i1" class="form-control" name="i1" value="@ViewBag.i1" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["Formulai2"]</label>
+                <input id="i2" class="form-control" name="i2" value="@ViewBag.i2" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaDu"]</label>
+                <input id="Du" class="form-control" name="Du" value="@ViewBag.Du" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaRor"]</label>
+                <select asp-items="ViewBag.GasDensity10" name="RoGvs" class="form-control" id="RoGvs"></select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaR"]</label>
+                <input id="R" class="form-control" name="R" value="@ViewBag.R" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaTsvr"]</label>
+                <input id="Tsvr" class="form-control" name="Tsvr" value="@ViewBag.Tsvr" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaTdelta"]</label>
+                <input id="Tdelta" class="form-control" name="Tdelta" value="@ViewBag.Tdelta" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaH"]</label>
+                <input id="H" class="form-control" name="H" value="@ViewBag.H" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaAstrat"]</label>
+                <input id="Astrat" class="form-control" name="Astrat" value="@ViewBag.Astrat" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaEta"]</label>
+                <input id="Eta" class="form-control" name="Eta" value="@ViewBag.Eta" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaPDK"]</label>
+                <input id="PDK" class="form-control" name="PDK" value="@ViewBag.PDK" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaV1gvsov"]</label>
+                <input id="V1gvsov" class="form-control" name="V1gvsov" value="@ViewBag.V1gvsov" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaFgvs"]</label>
+                <input id="Fgvs" class="form-control" name="Fgvs" value="@ViewBag.Fgvs" />
+            </div>
+            @if (ViewBag.W != null)
+            {
+                <h3>@SharedLocalizer["FormulaGasVolumeEmissionValues"]</h3>
+                <h4>Определение ПДВ и фактических выбросов на ПХГ и КС</h4>
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaW"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.W" />
+                </div>
+            }
+            @if (ViewBag.F != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaF"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.F" />
+                </div>
+            }
+            @if (ViewBag.V1gvs != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaV1gvs"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.V1gvs" />
+                </div>
+            }
+            @if (ViewBag.Vgvs != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaVgvs"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Vgvs" />
+                </div>
+            }
+            @if (ViewBag.G != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaG"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.G" />
+                </div>
+            }
+            @if (ViewBag.Fparam != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaFparam"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Fparam" />
+                </div>
+            }
+            @if (ViewBag.Mgvs != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaMgvs"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Mgvs" />
+                </div>
+            }
+            @if (ViewBag.Um != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaUm"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Um" />
+                </div>
+            }
+            @if (ViewBag.Ngvs != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaNgvs"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Ngvs" />
+                </div>
+            }
+            @if (ViewBag.PDV != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaPDV"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.PDV" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("i1"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("i2"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Du"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("R"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Tsvr"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Tdelta"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("H"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Astrat"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Eta"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("PDK"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("V1gvsov"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Fgvs"));
+    });
+</script>

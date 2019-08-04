@@ -1,0 +1,59 @@
+﻿@model Clever.Models.CATO
+@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Details"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@SharedLocalizer["Details"]</h2>
+
+<div>
+    <h4>@SharedLocalizer["CATO"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EgovId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EgovId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NameKK)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NameKK)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NameRU)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NameRU)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Parent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Parent)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AreaType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AreaType)
+        </dd>
+    </dl>
+</div>
+<div>
+    @*<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+        <a asp-action="Index">Back to List</a>*@
+    @Html.ActionLink(SharedLocalizer["Edit"], "Edit", new { Id = Model.Id, Page = ViewBag.Page, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter }) |
+    @Html.ActionLink(SharedLocalizer["BackToList"], "Index", new { Page = ViewBag.Page, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter })
+</div>

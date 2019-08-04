@@ -1,0 +1,17 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Directories"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@SharedLocalizer["Directories"]</h2>
+
+<a class="btn btn-default" asp-controller="CATO" asp-action="Index">@SharedLocalizer["CATO"]</a>
+
+<a class="btn btn-default" asp-controller="AirContaminantsKK" asp-action="Index">@SharedLocalizer["AirContaminantsKK"]</a>
+
+<a class="btn btn-default" asp-controller="AirContaminantsRU" asp-action="Index">@SharedLocalizer["AirContaminantsRU"]</a>
+
+<a class="btn btn-default" asp-controller="CompaniesKK" asp-action="Index">@SharedLocalizer["CompaniesKK"]</a>

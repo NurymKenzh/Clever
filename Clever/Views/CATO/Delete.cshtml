@@ -1,0 +1,71 @@
+﻿@model Clever.Models.CATO
+@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Delete"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@SharedLocalizer["Delete"]</h2>
+
+<h3>@SharedLocalizer["Delete"]?</h3>
+<div>
+    <h4>@SharedLocalizer["CATO"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EgovId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EgovId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NameKK)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NameKK)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NameRU)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NameRU)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Parent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Parent)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AreaType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AreaType)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <div hidden="hidden">
+            @Html.Editor("SortOrder", null, new { value = ViewBag.SortOrder })
+            @Html.Editor("EgovIdFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+            @Html.Editor("CodeFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+            @Html.Editor("NameKKFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+            @Html.Editor("NameRUFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+            @Html.Editor("ParentFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+            @Html.Editor("AreaTypeFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+            @Html.Editor("PageSize", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+            @Html.Editor("Page", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+        </div>
+        <input type="submit" value="@SharedLocalizer["Delete"]" class="btn btn-default" /> |
+        @Html.ActionLink(SharedLocalizer["BackToList"], "Index", new { Page = ViewBag.Page, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter })
+    </form>
+</div>

@@ -1,0 +1,161 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaGasVolumeEmissionValues"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>Расчет значений выбросов объема газа при остановки и раскрутки компрессора</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaGAS2">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaDo"]</label>
+                <input id="Do" class="form-control" name="Do" value="@ViewBag.Do" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaL"]</label>
+                <input id="L" class="form-control" name="L" value="@ViewBag.L" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaPa"]</label>
+                <input id="Pa" class="form-control" name="Pa" value="@ViewBag.Pa" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["Formulat0"]</label>
+                <input id="t0" class="form-control" name="t0" value="@ViewBag.t0" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaPo"]</label>
+                <input id="Po" class="form-control" name="Po" value="@ViewBag.Po" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["Formulatn"]</label>
+                <input id="tn" class="form-control" name="tn" value="@ViewBag.tn" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaPz"]</label>
+                <input id="Pz" class="form-control" name="Pz" value="@ViewBag.Pz" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaDelta"]</label>
+                <input id="Delta" class="form-control" name="Delta" value="@ViewBag.Delta" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaTz"]</label>
+                <input id="Tz" class="form-control" name="Tz" value="@ViewBag.Tz" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaPcp"]</label>
+                <input id="Pcp" class="form-control" name="Pcp" value="@ViewBag.Pcp" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaDd"]</label>
+                <input id="Dd" class="form-control" name="Dd" value="@ViewBag.Dd" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaTogm"]</label>
+                <input id="Togm" class="form-control" name="Togm" value="@ViewBag.Togm" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaRor"]</label>
+                <select asp-items="ViewBag.GasDensity" name="Ror" class="form-control" id="Ror"></select>
+            </div>
+            @if (ViewBag.Vsst != null)
+            {
+                <h3>@SharedLocalizer["FormulaGasVolumeEmissionValues"]</h3>
+                <h4>Расчет значений выбросов объема газа на объектах транспорта и хранения газа</h4>
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaVsst"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Vsst" />
+                </div>
+            }
+            @if (ViewBag.V1Ks != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaV1Ks"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.V1Ks" />
+                </div>
+            }
+            @if (ViewBag.G1 != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaG1"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.G1" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Do"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("L"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Pa"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("t0"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Po"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("tn"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Pz"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Delta"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Tz"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Pcp"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Dd"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Togm"));
+    });
+</script>

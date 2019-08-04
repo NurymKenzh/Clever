@@ -1,0 +1,227 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaGi"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>@SharedLocalizer["FormulaGi"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaGi">
+            @{
+                decimal[] MiVvArray = ViewBag.MiVv;
+                decimal[] TiArray = ViewBag.Ti;
+                decimal[] KiOArray = ViewBag.KiO;
+                decimal[] NiArray = ViewBag.Ni;
+                int countMiVv = MiVvArray.Count();
+                int countTi = TiArray.Count();
+                int countKiO = KiOArray.Count();
+                int countNi = NiArray.Count();
+            }
+            <input type="button" value="@SharedLocalizer["Add"]" onclick="AddMiVv()" class="form-control">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["Count"]</label>
+                <input id="MiVvCount" class="form-control" value="@countMiVv" readonly="readonly" />
+            </div>
+            @for (int i = 0; i < countMiVv; i++)
+            {
+                string divId = "MiVvDiv" + i.ToString(),
+                    inputId = "MiVv" + i.ToString();
+                decimal? value = MiVvArray[i] == 0 ? (decimal?)null : MiVvArray[i];
+                <div class="form-group" id="@divId">
+                    <label class="control-label">@SharedLocalizer["FormulaMiVv"]</label>
+                    <input id="@inputId" class="form-control" name="MiVv[@i.ToString()]" value="@value" />
+                    <input type="button" class="form-control" value="@SharedLocalizer["Remove"]" onclick="RemoveMiVv(@i)">
+                </div>
+            }
+            <input type="button" value="@SharedLocalizer["Add"]" onclick="AddTi()" class="form-control">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["Count"]</label>
+                <input id="TiCount" class="form-control" value="@countTi" readonly="readonly" />
+            </div>
+            @for (int i = 0; i < countTi; i++)
+            {
+                string divId = "TiDiv" + i.ToString(),
+                    inputId = "Ti" + i.ToString();
+                decimal? value = TiArray[i] == 0 ? (decimal?)null : TiArray[i];
+                <div class="form-group" id="@divId">
+                    <label class="control-label">@SharedLocalizer["FormulaTi"]</label>
+                    <input id="@inputId" class="form-control" name="Ti[@i.ToString()]" value="@value" />
+                    <input type="button" class="form-control" value="@SharedLocalizer["Remove"]" onclick="RemoveTi(@i)">
+                </div>
+            }
+            <input type="button" value="@SharedLocalizer["Add"]" onclick="AddKiO()" class="form-control">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["Count"]</label>
+                <input id="KiOCount" class="form-control" value="@countKiO" readonly="readonly" />
+            </div>
+            @for (int i = 0; i < countKiO; i++)
+            {
+                string divId = "KiODiv" + i.ToString(),
+                    inputId = "KiO" + i.ToString();
+                decimal? value = KiOArray[i] == 0 ? (decimal?)null : KiOArray[i];
+                <div class="form-group" id="@divId">
+                    <label class="control-label">@SharedLocalizer["FormulaKiO"]</label>
+                    <input id="@inputId" class="form-control" name="KiO[@i.ToString()]" value="@value" />
+                    <input type="button" class="form-control" value="@SharedLocalizer["Remove"]" onclick="RemoveKiO(@i)">
+                </div>
+            }
+            <input type="button" value="@SharedLocalizer["Add"]" onclick="AddNi()" class="form-control">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["Count"]</label>
+                <input id="NiCount" class="form-control" value="@countNi" readonly="readonly" />
+            </div>
+            @for (int i = 0; i < countNi; i++)
+            {
+                string divId = "NiDiv" + i.ToString(),
+                    inputId = "Ni" + i.ToString();
+                decimal? value = NiArray[i] == 0 ? (decimal?)null : NiArray[i];
+                <div class="form-group" id="@divId">
+                    <label class="control-label">@SharedLocalizer["FormulaNi"]</label>
+                    <input id="@inputId" class="form-control" name="Ni[@i.ToString()]" value="@value" />
+                    <input type="button" class="form-control" value="@SharedLocalizer["Remove"]" onclick="RemoveNi(@i)">
+                </div>
+            }
+            @if (ViewBag.Gi != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaGi"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Gi" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    @{
+        decimal[] MiVvArray2 = ViewBag.MiVv;
+        decimal[] TiArray2 = ViewBag.Ti;
+        decimal[] KiOArray2 = ViewBag.KiO;
+        decimal[] NiArray2 = ViewBag.Ni;
+        int countMiVv2 = MiVvArray2.Count();
+        int countTi2 = TiArray2.Count();
+        int countKiO2 = KiOArray2.Count();
+        int countNi2 = NiArray2.Count();
+    }
+    var countMiVv = @countMiVv2;
+    var countTi = @countTi2;
+    var countKiO = @countKiO2;
+    var countNi = @countNi2;
+
+    for (i = 0; i < countMiVv; i++) {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("MiVv" + i.toString()));
+    }
+    for (i = 0; i < countTi; i++) {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Ti" + i.toString()));
+    }
+    for (i = 0; i < countKiO; i++) {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("KiO" + i.toString()));
+    }
+    for (i = 0; i < countNi; i++) {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Ni" + i.toString()));
+    }
+
+    function AddMiVv() {
+        var newMiVv = '<div class="form-group" id="MiVvDiv' + countMiVv.toString() + '">' +
+            '<label class="control-label">@SharedLocalizer["FormulaMiVv"]</label>' +
+            '<input id="MiVv' + countMiVv.toString() + '" class="form-control" name="MiVv[' + countMiVv.toString() + ']" />' +
+            '<input type="button" class="form-control" value="@SharedLocalizer["Remove"]" onclick="RemoveMiVv(' + countMiVv.toString() + ')">' +
+            '</div>';
+        $("#MiVvDiv" + (countMiVv - 1).toString()).after(newMiVv);
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("MiVv" + countMiVv.toString()));
+        countMiVv += 1;
+        $('#MiVvCount').val(countMiVv);
+    }
+    function AddTi() {
+        var newTi = '<div class="form-group" id="TiDiv' + countTi.toString() + '">' +
+            '<label class="control-label">@SharedLocalizer["FormulaTi"]</label>' +
+            '<input id="Ti' + countTi.toString() + '" class="form-control" name="Ti[' + countTi.toString() + ']" />' +
+            '<input type="button" class="form-control" value="@SharedLocalizer["Remove"]" onclick="RemoveTi(' + countTi.toString() + ')">' +
+            '</div>';
+        $("#TiDiv" + (countTi - 1).toString()).after(newTi);
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Ti" + countTi.toString()));
+        countTi += 1;
+        $('#TiCount').val(countTi);
+    }
+    function AddKiO() {
+        var newKiO = '<div class="form-group" id="KiODiv' + countKiO.toString() + '">' +
+            '<label class="control-label">@SharedLocalizer["FormulaKiO"]</label>' +
+            '<input id="KiO' + countKiO.toString() + '" class="form-control" name="KiO[' + countKiO.toString() + ']" />' +
+            '<input type="button" class="form-control" value="@SharedLocalizer["Remove"]" onclick="RemoveKiO(' + countKiO.toString() + ')">' +
+            '</div>';
+        $("#KiODiv" + (countKiO - 1).toString()).after(newKiO);
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("KiO" + countKiO.toString()));
+        countKiO += 1;
+        $('#KiOCount').val(countKiO);
+    }
+    function AddNi() {
+        var newNi = '<div class="form-group" id="NiDiv' + countNi.toString() + '">' +
+            '<label class="control-label">@SharedLocalizer["FormulaNi"]</label>' +
+            '<input id="Ni' + countNi.toString() + '" class="form-control" name="Ni[' + countNi.toString() + ']" />' +
+            '<input type="button" class="form-control" value="@SharedLocalizer["Remove"]" onclick="RemoveNi(' + countNi.toString() + ')">' +
+            '</div>';
+        $("#NiDiv" + (countNi - 1).toString()).after(newNi);
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Ni" + countNi.toString()));
+        countNi += 1;
+        $('#NiCount').val(countNi);
+    }
+
+    function RemoveMiVv(i) {
+        $('#MiVv' + i.toString()).val(0);
+        $('#MiVvDiv' + i.toString()).hide();
+    }
+    function RemoveTi(i) {
+        $('#Ti' + i.toString()).val(0);
+        $('#TiDiv' + i.toString()).hide();
+    }
+    function RemoveKiO(i) {
+        $('#KiO' + i.toString()).val(0);
+        $('#KiODiv' + i.toString()).hide();
+    }
+    function RemoveNi(i) {
+        $('#Ni' + i.toString()).val(0);
+        $('#NiDiv' + i.toString()).hide();
+    }
+</script>

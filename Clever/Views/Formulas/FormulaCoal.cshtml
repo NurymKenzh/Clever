@@ -1,0 +1,153 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaCoal"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@SharedLocalizer["FormulaCoal"]</h2>
+
+<h3>@SharedLocalizer["FormulaHeatPowerThermalPowerPlantsCoal"]</h3>
+
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaHeatPowerThermalPowerPlantsCoal">@SharedLocalizer["FormulaHeatPowerThermalPowerPlantsCoal"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaHeatPowerThermalPowerPlantsCoalNorm">@SharedLocalizer["FormulaHeatPowerThermalPowerPlantsCoalNorm"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaHeatPowerThermalPowerPlantsCoalZ">@SharedLocalizer["FormulaHeatPowerThermalPowerPlantsCoalZ"]</a>
+<br />
+<br />
+
+<h3>@SharedLocalizer["FormulaTitleRecalculationDryToWorking"]</h3>
+
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaArW">@SharedLocalizer["FormulaArW"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaFuelTransfer">@SharedLocalizer["FormulaFuelTransfer"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaSrW">@SharedLocalizer["FormulaSrW"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaHrW">@SharedLocalizer["FormulaHrW"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaOrW">@SharedLocalizer["FormulaOrW"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaNrW">@SharedLocalizer["FormulaNrW"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaCr">@SharedLocalizer["FormulaCr"]</a>
+<br />
+<br />
+
+<h3>@SharedLocalizer["FormulaTitleVolumeOfDryFlueGases"]</h3>
+
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaVro2">@SharedLocalizer["FormulaVro2"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaV">@SharedLocalizer["FormulaV"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaVn2">@SharedLocalizer["FormulaVn2"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaVh2o">@SharedLocalizer["FormulaVh2o"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaVr">@SharedLocalizer["FormulaVr"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaVcr">@SharedLocalizer["FormulaVcr"]</a>
+<br />
+<br />
+
+<h3>@SharedLocalizer["FormulaTitleEstimatedFuelConsumption"]</h3>
+
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaB">@SharedLocalizer["FormulaB"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaBp">@SharedLocalizer["FormulaBp"]</a>
+<br />
+<br />
+
+<h3>@SharedLocalizer["FormulaTitleCalcMassConcentrationsPollutants"]</h3>
+
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaAFact">@SharedLocalizer["FormulaAFact"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaCjNOx">@SharedLocalizer["FormulaCjNOx"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaCjCO">@SharedLocalizer["FormulaCjCO"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaCjSO2">@SharedLocalizer["FormulaCjSO2"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaCjTB">@SharedLocalizer["FormulaCjTB"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaKd">@SharedLocalizer["FormulaKd"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaKzy">@SharedLocalizer["FormulaKzy"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaCjT">@SharedLocalizer["FormulaCjT"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaAAbove">@SharedLocalizer["FormulaAAbove"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaSAbove">@SharedLocalizer["FormulaSAbove"]</a>
+<br />
+<br />
+
+<h3>@SharedLocalizer["FormulaTitleEmissionsPollutants"]</h3>
+
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaMNOx">@SharedLocalizer["FormulaMNOx"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaMNO2">@SharedLocalizer["FormulaMNO2"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaMNO">@SharedLocalizer["FormulaMNO"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaMCO">@SharedLocalizer["FormulaMCO"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaMSO2">@SharedLocalizer["FormulaMSO2"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaMTB">@SharedLocalizer["FormulaMTB"]</a>
+<br />
+<br />
+
+<h3>@SharedLocalizer["FormulaTitleAnnualEmissionsPollutants"]</h3>
+
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaMNOxY">@SharedLocalizer["FormulaMNOxY"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaMNO2Y">@SharedLocalizer["FormulaMNO2Y"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaMNOY">@SharedLocalizer["FormulaMNOY"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaMCOY">@SharedLocalizer["FormulaMCOY"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaMSO2Y">@SharedLocalizer["FormulaMSO2Y"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaMTBY">@SharedLocalizer["FormulaMTBY"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaMZMY">@SharedLocalizer["FormulaMZMY"]</a>
+<br />
+<br />

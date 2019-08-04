@@ -1,0 +1,85 @@
+﻿@model Clever.Models.AirContaminantKK
+@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = @SharedLocalizer["Delete"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@SharedLocalizer["Delete"]</h2>
+
+<h3>@SharedLocalizer["Delete"]?</h3>
+<div>
+    <h4>@SharedLocalizer["AirContaminantKK"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberCAS)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NumberCAS)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Formula)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Formula)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MaximumPermissibleConcentrationOneTimeMaximum)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaximumPermissibleConcentrationOneTimeMaximum)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MaximumPermissibleConcentrationDailyAverage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaximumPermissibleConcentrationDailyAverage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HazardClass)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HazardClass)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ApproximateSafeExposureLevel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ApproximateSafeExposureLevel)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <div hidden="hidden">
+            @Html.Editor("SortOrder", null, new { value = ViewBag.SortOrder })
+            @Html.Editor("NameFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+            @Html.Editor("NumberCASFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+            @Html.Editor("FormulaFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+            @Html.Editor("MaximumPermissibleConcentrationOneTimeMaximumFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+            @Html.Editor("MaximumPermissibleConcentrationDailyAverageFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+            @Html.Editor("HazardClassFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+            @Html.Editor("CodeFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+            @Html.Editor("ApproximateSafeExposureLevelFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+            @Html.Editor("PageSize", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+            @Html.Editor("Page", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+        </div>
+        <input type="submit" value="@SharedLocalizer["Delete"]" class="btn btn-default" /> |
+        @Html.ActionLink(SharedLocalizer["BackToList"], "Index", new { Page = ViewBag.Page, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, NameFilter = ViewBag.NameFilter, NumberCASFilter = ViewBag.NumberCASFilter, FormulaFilter = ViewBag.FormulaFilter, MaximumPermissibleConcentrationOneTimeMaximumFilter = ViewBag.MaximumPermissibleConcentrationOneTimeMaximumFilter, MaximumPermissibleConcentrationDailyAverageFilter = ViewBag.MaximumPermissibleConcentrationDailyAverageFilter, HazardClassFilter = ViewBag.HazardClassFilter, CodeFilter = ViewBag.CodeFilter, ApproximateSafeExposureLevelFilter = ViewBag.ApproximateSafeExposureLevelFilter })
+    </form>
+</div>

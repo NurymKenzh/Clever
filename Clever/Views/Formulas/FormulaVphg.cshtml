@@ -1,0 +1,86 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaVphg"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>@SharedLocalizer["FormulaVphg"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaVphg">
+            @{
+                decimal[] VsrArray = ViewBag.Vsr;
+                int countVsr = VsrArray.Count();
+            }
+            <input type="button" value="@SharedLocalizer["Add"]" onclick="AddVsr()" class="form-control">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["Count"]</label>
+                <input id="VsrCount" class="form-control" value="@countVsr" readonly="readonly" />
+            </div>
+            @for (int i = 0; i < countVsr; i++)
+            {
+                string divId = "VsrDiv" + i.ToString(),
+                    inputId = "Vsr" + i.ToString();
+                decimal? value = VsrArray[i] == 0 ? (decimal?)null : VsrArray[i];
+                <div class="form-group" id="@divId">
+                    <label class="control-label">@SharedLocalizer["FormulaVsr"]</label>
+                    <input id="@inputId" class="form-control" name="Vsr[@i.ToString()]" value="@value" />
+                    <input type="button" class="form-control" value="@SharedLocalizer["Remove"]" onclick="RemoveVsr(@i)">
+                </div>
+            }
+            @if (ViewBag.Vphg != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaVphg"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Vphg" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    @{
+        decimal[] VsrArray2 = ViewBag.Vsr;
+        int countVsr2 = VsrArray2.Count();
+    }
+    var countVsr = @countVsr2;
+
+    for (i = 0; i < countVsr; i++) {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Vsr" + i.toString()));
+    }
+
+    function AddVsr() {
+        var newVsr = '<div class="form-group" id="VsrDiv' + countVsr.toString() + '">' +
+            '<label class="control-label">@SharedLocalizer["FormulaVsr"]</label>' +
+            '<input id="Vsr' + countVsr.toString() + '" class="form-control" name="Vsr[' + countVsr.toString() + ']" />' +
+            '<input type="button" class="form-control" value="@SharedLocalizer["Remove"]" onclick="RemoveVsr(' + countVsr.toString() + ')">' +
+            '</div>';
+        $("#VsrDiv" + (countVsr - 1).toString()).after(newVsr);
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Vsr" + countVsr.toString()));
+        countVsr += 1;
+        $('#VsrCount').val(countVsr);
+    }
+
+    function RemoveVsr(i) {
+        $('#Vsr' + i.toString()).val(0);
+        $('#VsrDiv' + i.toString()).hide();
+    }
+</script>

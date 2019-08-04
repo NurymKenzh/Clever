@@ -1,0 +1,117 @@
+﻿@model Clever.Models.CompanyKK
+@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Details"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@SharedLocalizer["Details"]</h2>
+
+<div>
+    <h4>@SharedLocalizer["CompanyKK"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BIN)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BIN)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NameKK)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NameKK)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NameRU)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NameRU)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateRegister)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateRegister)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OKED)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OKED)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ActivityKindKK)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ActivityKindKK)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ActivityKindRU)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ActivityKindRU)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OKEDSecondary)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OKEDSecondary)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.KRP)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.KRP)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.KRPNameKK)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.KRPNameKK)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.KRPNameRU)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.KRPNameRU)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CATO)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CATO)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LocalityKK)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LocalityKK)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LocalityRU)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LocalityRU)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LegalAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LegalAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HeadName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HeadName)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink(SharedLocalizer["Edit"], "Edit", new { Id = Model.Id, Search = ViewBag.Search, Page = ViewBag.Page, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter = ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter }) |
+    @Html.ActionLink(SharedLocalizer["BackToList"], "Index", new { Search = ViewBag.Search, Page = ViewBag.Page, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, BINFilter = ViewBag.BINFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, DateRegisterFilter = ViewBag.DateRegisterFilter, OKEDFilter = ViewBag.OKEDFilter, ActivityKindKKFilter = ViewBag.ActivityKindKKFilter, ActivityKindRUFilter = ViewBag.ActivityKindRUFilter, OKEDSecondaryFilter = ViewBag.OKEDSecondaryFilter, KRPFilter = ViewBag.KRPFilter, KRPNameKKFilter = ViewBag.KRPNameKKFilter, KRPNameRUFilter = ViewBag.KRPNameRUFilter, CATOFilter = ViewBag.CATOFilter, LocalityKKFilter = ViewBag.LocalityKKFilter, LocalityRUFilter = ViewBag.LocalityRUFilter, LegalAddressFilter = ViewBag.LegalAddressFilter, HeadNameFilter = ViewBag.HeadNameFilter })
+</div>

@@ -1,0 +1,65 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaCcoSgt"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>@SharedLocalizer["FormulaCcoSgt"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaCcoSgt">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaQ3"]</label>
+                <input id="Q3" class="form-control" name="Q3" value="@ViewBag.Q3" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaRdpt"]</label>
+                <input id="Rdpt" class="form-control" name="Rdpt" value="@ViewBag.Rdpt" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaQnr"]</label>
+                <input id="Qnr" class="form-control" name="Qnr" value="@ViewBag.Qnr" />
+            </div>
+            @if (ViewBag.CcoSgt != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaCcoSgt"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.CcoSgt" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Q3"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Rdpt"));
+    });
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Qnr"));
+    });
+</script>

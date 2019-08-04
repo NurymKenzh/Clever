@@ -1,0 +1,377 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaHeatPowerThermalPowerPlantsCoalZ"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>@SharedLocalizer["FormulaHeatPowerThermalPowerPlantsCoalZ"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaHeatPowerThermalPowerPlantsCoalZ">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaAc"]</label>
+                <input id="Ac" class="form-control" name="Ac" value="@ViewBag.Ac" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaSc"]</label>
+                <input id="Sc" class="form-control" name="Sc" value="@ViewBag.Sc" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaHc"]</label>
+                <input id="Hc" class="form-control" name="Hc" value="@ViewBag.Hc" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaWr"]</label>
+                <input id="Wr" class="form-control" name="Wr" value="@ViewBag.Wr" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaOc"]</label>
+                <input id="Oc" class="form-control" name="Oc" value="@ViewBag.Oc" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaNc"]</label>
+                <input id="Nc" class="form-control" name="Nc" value="@ViewBag.Nc" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaQ"]</label>
+                <input id="Q" class="form-control" name="Q" value="@ViewBag.Q" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaKPDKA"]</label>
+                <input id="KPDKA" class="form-control" name="KPDKA" value="@ViewBag.KPDKA" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaQri"]</label>
+                <input id="Qri" class="form-control" name="Qri" value="@ViewBag.Qri" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaQ4"]</label>
+                <input id="Q4" class="form-control" name="Q4" value="@ViewBag.Q4" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaO2"]</label>
+                <input id="O2" class="form-control" name="O2" value="@ViewBag.O2" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaINO2"]</label>
+                <input id="INO2" class="form-control" name="INO2" value="@ViewBag.INO2" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaINO"]</label>
+                <input id="INO" class="form-control" name="INO" value="@ViewBag.INO" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaICO"]</label>
+                <input id="ICO" class="form-control" name="ICO" value="@ViewBag.ICO" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaISO2"]</label>
+                <input id="ISO2" class="form-control" name="ISO2" value="@ViewBag.ISO2" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaN"]</label>
+                <input id="N" class="form-control" name="N" value="@ViewBag.N" />
+            </div>
+            @if (ViewBag.ArW != null)
+            {
+                <h3>@SharedLocalizer["FormulaTitleRecalculationDryToWorking"]</h3>
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaArW"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.ArW" />
+                </div>
+            }
+            @if (ViewBag.SrW != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaSrW"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.SrW" />
+                </div>
+            }
+            @if (ViewBag.HrW != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaHrW"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.HrW" />
+                </div>
+            }
+            @if (ViewBag.OrW != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaOrW"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.OrW" />
+                </div>
+            }
+            @if (ViewBag.NrW != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaNrW"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.NrW" />
+                </div>
+            }
+            @if (ViewBag.Cr != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaCr"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Cr" />
+                </div>
+            }
+            @if (ViewBag.Vro2 != null)
+            {
+                <h3>@SharedLocalizer["FormulaTitleVolumeOfDryFlueGases"]</h3>
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaVro2"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Vro2" />
+                </div>
+            }
+            @if (ViewBag.V != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaV"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.V" />
+                </div>
+            }
+            @if (ViewBag.Vn2 != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaVn2"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Vn2" />
+                </div>
+            }
+            @if (ViewBag.Vh2o != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaVh2o"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Vh2o" />
+                </div>
+            }
+            @if (ViewBag.Vr != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaVr"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Vr" />
+                </div>
+            }
+            @if (ViewBag.Vcr != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaVcr"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Vcr" />
+                </div>
+            }
+            @if (ViewBag.B != null)
+            {
+                <h3>@SharedLocalizer["FormulaTitleEstimatedFuelConsumption"]</h3>
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaB"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.B" />
+                </div>
+            }
+            @if (ViewBag.Bp != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaBp"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Bp" />
+                </div>
+            }
+            @if (ViewBag.AFact != null)
+            {
+                <h3>@SharedLocalizer["FormulaTitleCalcMassConcentrationsPollutants"]</h3>
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaAFact"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.AFact" />
+                </div>
+            }
+            @if (ViewBag.CjZNO2 != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaCjZNO2"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.CjZNO2" />
+                </div>
+            }
+            @if (ViewBag.CjZNO != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaCjZNO"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.CjZNO" />
+                </div>
+            }
+            @if (ViewBag.CjZCO != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaCjZCO"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.CjZCO" />
+                </div>
+            }
+            @if (ViewBag.CjZSO2 != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaCjZSO2"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.CjZSO2" />
+                </div>
+            }
+            @if (ViewBag.AAbove != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaAAbove"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.AAbove" />
+                </div>
+            }
+            @if (ViewBag.SAbove != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaSAbove"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.SAbove" />
+                </div>
+            }
+            @if (ViewBag.MNO2 != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaMNO2"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.MNO2" />
+                </div>
+            }
+            @if (ViewBag.MNO != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaMNO"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.MNO" />
+                </div>
+            }
+            @if (ViewBag.MCO != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaMCO"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.MCO" />
+                </div>
+            }
+            @if (ViewBag.MSO2 != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaMSO2"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.MSO2" />
+                </div>
+            }
+            @if (ViewBag.MNO2Y != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaMNO2Y"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.MNO2Y" />
+                </div>
+            }
+            @if (ViewBag.MNOY != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaMNOY"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.MNOY" />
+                </div>
+            }
+            @if (ViewBag.MCOY != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaMCOY"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.MCOY" />
+                </div>
+            }
+            @if (ViewBag.MSO2Y != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaMSO2Y"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.MSO2Y" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Ac"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Sc"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Hc"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Wr"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Oc"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Nc"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Q"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("KPDKA"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Qri"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Q4"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("O2"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("N"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("INO2"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("INO"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("ICO"));
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("ISO2"));
+    });
+</script>

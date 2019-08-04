@@ -1,0 +1,173 @@
+﻿@model IEnumerable<Clever.Models.CATO>
+@using System.Net
+@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["CATO"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@SharedLocalizer["CATO"]</h2>
+
+<p>
+    @*<a asp-action="Create">Create New</a> |*@
+    @Html.ActionLink(SharedLocalizer["Create"], "Create", new { Page = ViewBag.Page, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter }) |
+    @*<a asp-action="Parse">Parse</a>*@
+    @Html.ActionLink(SharedLocalizer["Parse"], "Parse", new { Page = ViewBag.Page, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter })
+</p>
+@using (Html.BeginForm("Index", "CATO", new { SortOrder = ViewBag.SortOrder, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter }, FormMethod.Get))
+{
+    @Html.Editor("SortOrder", null, new { htmlAttributes = new { @hidden = "hidden" }, value = ViewBag.SortOrder })
+    @if (ViewBag.EndPage > 1)
+    {
+        <ul class="pagination">
+            @if (ViewBag.Page > 1)
+            {
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&laquo;&laquo;"), "Index",
+                                  new { PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter })
+                </li>
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&laquo;"), "Index",
+                                  new { PageSize = ViewBag.PageSize, Page = ViewBag.Page - 1, SortOrder = ViewBag.SortOrder, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter })
+                </li>
+            }
+
+            @for (var page = (int)ViewBag.StartPage; page <= (int)ViewBag.EndPage; page++)
+            {
+                <li class="@(page == ViewBag.Page ? "active" : "")">
+                    @Html.ActionLink(page.ToString(), "Index",
+                                  new { PageSize = ViewBag.PageSize, Page = page, SortOrder = ViewBag.SortOrder, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter })
+                </li>
+            }
+
+            @if (ViewBag.Page < ViewBag.TotalPages)
+            {
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&raquo;"), "Index",
+                                  new { PageSize = ViewBag.PageSize, Page = ViewBag.Page + 1, SortOrder = ViewBag.SortOrder, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter })
+                </li>
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&raquo;&raquo;"), "Index",
+                                  new { PageSize = ViewBag.PageSize, Page = ViewBag.TotalPages, SortOrder = ViewBag.SortOrder, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter })
+                </li>
+            }
+        </ul>
+    }
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().EgovId).ToString(), "Index",
+                                  new { PageSize = ViewBag.PageSize, SortOrder = ViewBag.EgovIdSort, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter })
+                    <br />
+                    @Html.Editor("EgovIdFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                </th>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().Code).ToString(), "Index",
+                                  new { PageSize = ViewBag.PageSize, SortOrder = ViewBag.CodeSort, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter })
+                    <br />
+                    @Html.Editor("CodeFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                </th>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().NameKK).ToString(), "Index",
+                                  new { PageSize = ViewBag.PageSize, SortOrder = ViewBag.NameKKSort, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter })
+                    <br />
+                    @Html.Editor("NameKKFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                </th>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().NameRU).ToString(), "Index",
+                                  new { PageSize = ViewBag.PageSize, SortOrder = ViewBag.NameRUSort, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter })
+                    <br />
+                    @Html.Editor("NameRUFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                </th>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().Parent).ToString(), "Index",
+                                  new { PageSize = ViewBag.PageSize, SortOrder = ViewBag.ParentSort, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter })
+                    <br />
+                    @Html.Editor("ParentFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                </th>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(c => c.ToList().FirstOrDefault().AreaType).ToString(), "Index",
+                                  new { PageSize = ViewBag.PageSize, SortOrder = ViewBag.AreaTypeSort, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter })
+                    <br />
+                    @Html.Editor("AreaTypeFilter", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                </th>
+                <th>
+                    @Html.DropDownList("PageSize", (IEnumerable<SelectListItem>)ViewBag.PageSizeList, htmlAttributes: new { @class = "form-control" })
+                    <input type="submit" value="@SharedLocalizer["Find"]" class="btn btn-default">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EgovId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NameKK)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NameRU)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Parent)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AreaType)
+                    </td>
+                    <td>
+                        @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                        @Html.ActionLink(SharedLocalizer["Edit"], "Edit", new { Id = item.Id, Page = ViewBag.Page, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter }) |
+                        @Html.ActionLink(SharedLocalizer["Details"], "Details", new { Id = item.Id, Page = ViewBag.Page, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter }) |
+                        @Html.ActionLink(SharedLocalizer["Delete"], "Delete", new { Id = item.Id, Page = ViewBag.Page, PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @if (ViewBag.EndPage > 1)
+    {
+        <ul class="pagination">
+            @if (ViewBag.Page > 1)
+            {
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&laquo;&laquo;"), "Index",
+                                  new { PageSize = ViewBag.PageSize, SortOrder = ViewBag.SortOrder, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter })
+                </li>
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&laquo;"), "Index",
+                                  new { PageSize = ViewBag.PageSize, Page = ViewBag.Page - 1, SortOrder = ViewBag.SortOrder, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter })
+                </li>
+            }
+
+            @for (var page = (int)ViewBag.StartPage; page <= (int)ViewBag.EndPage; page++)
+            {
+                <li class="@(page == ViewBag.Page ? "active" : "")">
+                    @Html.ActionLink(page.ToString(), "Index",
+                                  new { PageSize = ViewBag.PageSize, Page = page, SortOrder = ViewBag.SortOrder, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter })
+                </li>
+            }
+
+            @if (ViewBag.Page < ViewBag.TotalPages)
+            {
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&raquo;"), "Index",
+                                  new { PageSize = ViewBag.PageSize, Page = ViewBag.Page + 1, SortOrder = ViewBag.SortOrder, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter })
+                </li>
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&raquo;&raquo;"), "Index",
+                                  new { PageSize = ViewBag.PageSize, Page = ViewBag.TotalPages, SortOrder = ViewBag.SortOrder, EgovIdFilter = ViewBag.EgovIdFilter, CodeFilter = ViewBag.CodeFilter, NameKKFilter = ViewBag.NameKKFilter, NameRUFilter = ViewBag.NameRUFilter, ParentFilter = ViewBag.ParentFilter, AreaTypeFilter = ViewBag.AreaTypeFilter })
+                </li>
+            }
+        </ul>
+    }
+}

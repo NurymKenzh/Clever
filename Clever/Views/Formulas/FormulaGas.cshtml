@@ -1,0 +1,217 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaGasVolumeEmissionValues"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@SharedLocalizer["FormulaGasVolumeEmissionValues"]</h2>
+
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGasVolumeEmissionValues">@SharedLocalizer["FormulaGasVolumeEmissionValues"]</a>
+<br />
+<br />
+
+<h3>@SharedLocalizer["FormulaTitleCalcGasVolumeTransportationStorageFacilities"]</h3>
+
+<h4>ГАЗ_1 (272), ГАЗ_2 (273)</h4>
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGAS1">Композит: ГАЗ_1 (272)</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGAS1nonSSVk">Композит: ГАЗ_1 (272) - без площади и геом. объёма</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaSs">@SharedLocalizer["FormulaSs"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaVk">@SharedLocalizer["FormulaVk"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaVstr">@SharedLocalizer["FormulaVstr"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaV1">@SharedLocalizer["FormulaV1"]</a>
+<br />
+<br />
+<h4>ГАЗ_2 (273)</h4>
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGAS2">Композит: ГАЗ_2 (273)</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaVsst">@SharedLocalizer["FormulaVsst"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaV1Ks">@SharedLocalizer["FormulaV1Ks"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaG1">@SharedLocalizer["FormulaG1"]</a>
+<br />
+<br />
+<h4>ГАЗ_3 (286)</h4>
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaVphg">@SharedLocalizer["FormulaVphg"]</a>
+<br />
+<br />
+<h4>ГАЗ_4 (287)</h4>
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGAS4">Композит: ГАЗ_4 (287)</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaVvg">@SharedLocalizer["FormulaVvg"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaM">@SharedLocalizer["FormulaM"]</a>
+<br />
+<br />
+<h4>ГАЗ_5 (288)</h4>
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGAS5">Композит: ГАЗ_5 (288)</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaVdg">@SharedLocalizer["FormulaVdg"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaVgf">@SharedLocalizer["FormulaVgf"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaNso2">@SharedLocalizer["FormulaNso2"]</a>
+<br />
+<br />
+<h4>ГАЗ_6 (296)</h4>
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaDdg">@SharedLocalizer["FormulaDdg"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaV1vp">@SharedLocalizer["FormulaV1vp"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaVpg">@SharedLocalizer["FormulaVpg"]</a>
+<br />
+<br />
+<h4>ГАЗ_7 (299)</h4>
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGAS7">Композит: Расчет выбросов окиси углерода</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGAS7withParam">Композит: Расчет выбросов окиси углерода с учетом всех условий расчета его состовляющих</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaCcoSgt">@SharedLocalizer["FormulaCcoSgt"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaYco">@SharedLocalizer["FormulaYco"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGwDg">@SharedLocalizer["FormulaGwDg"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGw">@SharedLocalizer["FormulaGw"]</a>
+<br />
+<br />
+<h4>ГАЗ_8 (304)</h4>
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaNu">@SharedLocalizer["FormulaNu"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaYno2">@SharedLocalizer["FormulaYno2"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGno2">@SharedLocalizer["FormulaGno2"]</a>
+<br />
+<br />
+<h4>ГАЗ_9 (305)</h4>
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGi">@SharedLocalizer["FormulaGi"]</a>
+<br />
+<br />
+<h4>ГАЗ_10 (312), ГАЗ_11 (313), ГАЗ_9 (305)-(ПДВ)</h4>
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGAS10">Композит: Определение ПДВ и фактических выбросов на ПХГ и КС</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaW">@SharedLocalizer["FormulaW"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaF">@SharedLocalizer["FormulaF"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaV1gvs">@SharedLocalizer["FormulaV1gvs"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaVgvs">@SharedLocalizer["FormulaVgvs"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaG">@SharedLocalizer["FormulaG"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaFparam">@SharedLocalizer["FormulaFparam"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaMgvs">@SharedLocalizer["FormulaMgvs"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaUm">@SharedLocalizer["FormulaUm"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaNgvs">@SharedLocalizer["FormulaNgvs"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaPDV">@SharedLocalizer["FormulaPDV"]</a>
+<br />
+<br />
+<h4>ГАЗ_11 (313)</h4>
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaUmHol">@SharedLocalizer["FormulaUmHol"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaNgvsHol">@SharedLocalizer["FormulaNgvsHol"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaPDVhol">@SharedLocalizer["FormulaPDVhol"]</a>
+<br />
+<br />
+<h4>ГАЗ_12 (314)</h4>
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGr">@SharedLocalizer["FormulaGr"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaMiFact">@SharedLocalizer["FormulaMiFact"]</a>
+<br />
+<br />
+<h4>ГАЗ_13 (315)</h4>
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGAS13">Композит: Расчет годовых выбросов</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGAS13withS">Композит: Расчет годовых выбросов для серасодержащих газов</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGrPhg">@SharedLocalizer["FormulaGrPhg"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGrKs">@SharedLocalizer["FormulaGrKs"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGrGrs">@SharedLocalizer["FormulaGrGrs"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGrPhgS">@SharedLocalizer["FormulaGrPhgS"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGrKsS">@SharedLocalizer["FormulaGrKsS"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGrGrsS">@SharedLocalizer["FormulaGrGrsS"]</a>
+<br />
+<br />
+<h4>ГАЗ_14 (317)</h4>
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGAS14">Композит: Расчет годовых выбросов продуктов сгорания топливного газа</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGtg">@SharedLocalizer["FormulaGtg"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGdg">@SharedLocalizer["FormulaGdg"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaGsa">@SharedLocalizer["FormulaGsa"]</a>
+<br />
+<br />
+<h4>Графики</h4>
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaTog">@SharedLocalizer["FormulaTog"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaZg">@SharedLocalizer["FormulaZg"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Formulas" asp-action="FormulaVgraf">@SharedLocalizer["FormulaVgraf"]</a>
+<br />
+<br />

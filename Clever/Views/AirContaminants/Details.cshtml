@@ -1,0 +1,55 @@
+﻿@model Clever.Models.AirContaminant
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AirContaminant</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberCAS)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NumberCAS)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HazardClass)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HazardClass)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MaximumPermissibleConcentrationOneTimeMaximum)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaximumPermissibleConcentrationOneTimeMaximum)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MaximumPermissibleConcentrationDailyAverage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaximumPermissibleConcentrationDailyAverage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ApproximateSafeExposureLevel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ApproximateSafeExposureLevel)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

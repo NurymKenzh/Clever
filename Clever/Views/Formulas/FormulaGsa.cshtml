@@ -1,0 +1,104 @@
+﻿@using Clever.Controllers
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["FormulaGsa"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-inputmask/inputmask/inputmask.js"></script>
+<h2>@SharedLocalizer["FormulaGsa"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormulaGsa">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaCsSa"]</label>
+                <input id="CsSa" class="form-control" name="CsSa" value="@ViewBag.CsSa" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FormulaRor"]</label>
+                <select asp-items="ViewBag.GasDensity14" name="RoSa" class="form-control" id="RoSa"></select>
+            </div>
+            @{
+                decimal[] VsaArray = ViewBag.Vsa;
+                int countVsa = VsaArray.Count();
+            }
+            <input type="button" value="@SharedLocalizer["Add"]" onclick="AddVsa()" class="form-control">
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["Count"]</label>
+                <input id="VsaCount" class="form-control" value="@countVsa" readonly="readonly" />
+            </div>
+            @for (int i = 0; i < countVsa; i++)
+            {
+                string divId = "VsaDiv" + i.ToString(),
+                    inputId = "Vsa" + i.ToString();
+                decimal? value = VsaArray[i] == 0 ? (decimal?)null : VsaArray[i];
+                <div class="form-group" id="@divId">
+                    <label class="control-label">@SharedLocalizer["FormulaVsa"]</label>
+                    <input id="@inputId" class="form-control" name="Vsa[@i.ToString()]" value="@value" />
+                    <input type="button" class="form-control" value="@SharedLocalizer["Remove"]" onclick="RemoveVsa(@i)">
+                </div>
+            }
+            @if (ViewBag.Gsa != null)
+            {
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["FormulaGsa"]</label>
+                    <input class="form-control" readonly="readonly" value="@ViewBag.Gsa" />
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Calculate"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("CsSa"));
+    });
+</script>
+
+<script>
+    @{
+        decimal[] VsaArray2 = ViewBag.Vsa;
+        int countVsa2 = VsaArray2.Count();
+    }
+    var countVsa = @countVsa2;
+
+    for (i = 0; i < countVsa; i++) {
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Vsa" + i.toString()));
+    }
+
+    function AddVsa() {
+        var newVsa = '<div class="form-group" id="VsaDiv' + countVsa.toString() + '">' +
+            '<label class="control-label">@SharedLocalizer["FormulaVsa"]</label>' +
+            '<input id="Vsa' + countVsa.toString() + '" class="form-control" name="Vsa[' + countVsa.toString() + ']" />' +
+            '<input type="button" class="form-control" value="@SharedLocalizer["Remove"]" onclick="RemoveVsa(' + countVsa.toString() + ')">' +
+            '</div>';
+        $("#VsaDiv" + (countVsa - 1).toString()).after(newVsa);
+        Inputmask({
+            "mask": "9[9][9][9][9][9][9][9][9]@CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator" + "99999",
+            clearMaskOnLostFocus: false,
+            "placeholder": "0"
+        }).mask(document.getElementById("Vsa" + countVsa.toString()));
+        countVsa += 1;
+        $('#VsaCount').val(countVsa);
+    }
+
+    function RemoveVsa(i) {
+        $('#Vsa' + i.toString()).val(0);
+        $('#VsaDiv' + i.toString()).hide();
+    }
+</script>
